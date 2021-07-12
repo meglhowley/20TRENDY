@@ -7,7 +7,7 @@
 ![essential](https://static01.nyt.com/images/2020/05/24/arts/24museum-covidittem9/merlin_172435299_47ec9fd1-ccb6-43ef-ba57-ee39491693cb-superJumbo.jpg?quality=90&auto=webp)
 
 ## Created By: Meg Howley
-#### [LinkedIn](https://www.linkedin.com/in/megan-l-howley-4b568199/) | [GitHub](https://github.com/meglhowley) | [Trello Board](https://trello.com/b/pCm4LABs/take-a-hike)
+#### [LinkedIn](https://www.linkedin.com/in/megan-l-howley-4b568199/) | [GitHub](https://github.com/meglhowley) | [Trello Board](https://trello.com/b/iw7heovO/20trendy)
 #### Date: 7/11/2021
 ***
 ## *Technologies Used*
