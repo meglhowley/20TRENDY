@@ -1,1 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,200&family=Spartan:wght@300;400&display=swap');
 
+body{
+  margin: 0;
+}
+
+.title{
+  position: absolute;
+  top: 8vh;
+  font-family: 'Spartan', sans-serif;
+  font-size: 20vw;
+  margin-left: 200px;
+  width: fit-content;
+  line-height: 100%;
+}
+
+.title-section{
+  height: 100vh;
+  width: 99vw;
+}
+
+.bio{
+  font-size: 1.75vw;
+  text-align: right;
+  font-family: 'Roboto Mono', monospace;
+  width: 500px;
+  position: absolute;
+  right: 13vw;
+  top: 25vh;  
+}
+
+.auth-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
+}
+
+.register-form{
+text-align: center;
+}
