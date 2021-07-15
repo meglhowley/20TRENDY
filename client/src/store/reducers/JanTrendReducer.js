@@ -6,7 +6,8 @@ const {
   SET_KEY_WORD_1,
   SET_KEY_WORD_2,
   SET_USER_CHART_DATA,
-  TOGGLE_USER_TREND_CLICKED
+  TOGGLE_USER_TREND_CLICKED,
+  SET_QUIZ_SELECTION
   } = require('../types')
   
   const iState= {
@@ -16,7 +17,8 @@ const {
     keyWord1: '',
     keyWord2: '',
     userChartData: null,
-    userTrendClicked: false
+    userTrendClicked: false,
+    quizSelection: ''
   }
   
   const JanTrendReducer = (state = iState, action) => {
@@ -39,6 +41,8 @@ const {
           return {...state, userChartData: action.payload}
       case TOGGLE_USER_TREND_CLICKED:
           return {...state, userTrendClicked: action.payload}
+      case SET_QUIZ_SELECTION:
+          return {...state, quizSelection: action.payload}
       default:
         return { ...state }
     }

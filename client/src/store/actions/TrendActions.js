@@ -13,7 +13,8 @@ import {
    SET_KEY_WORD_1,
    SET_KEY_WORD_2,
    SET_USER_CHART_DATA,
-   TOGGLE_USER_TREND_CLICKED
+   TOGGLE_USER_TREND_CLICKED,
+   SET_QUIZ_SELECTION
  } from '../types'
 
  export const FetchTrendsByDate= (timeFrame) =>{
@@ -81,6 +82,10 @@ export const ToggleUserTrendClicked = (boolean) => ({
   payload: boolean
 })
 
+export const SetQuizSelection = (keyword) => ({
+  type: SET_QUIZ_SELECTION,
+  payload: keyword
+})
 
 
 

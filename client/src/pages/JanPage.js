@@ -8,7 +8,8 @@ RemoveTrend,
 SetKeyWord1,
 SetKeyWord2,
 SetUserChartData,
-ToggleUserTrendClicked
+ToggleUserTrendClicked,
+SetQuizSelection
 } from '../store/actions/TrendActions'
 import UserChart from '../components/UserChart'
 import { ResponsiveContainer } from 'recharts'
@@ -26,7 +27,8 @@ return{
   setKeyWord1: (body) =>dispatch(SetKeyWord1(body)),
   setKeyWord2: (body) =>dispatch(SetKeyWord2(body)),
   setUserChartData: (body) => dispatch(SetUserChartData(body)),
-  toggleUserTrendClicked: (body) => dispatch(ToggleUserTrendClicked(body))
+  toggleUserTrendClicked: (body) => dispatch(ToggleUserTrendClicked(body)),
+  setQuizSelection: (keyword) => dispatch(SetQuizSelection(keyword))
 }
 }
 
@@ -40,7 +42,8 @@ const JanPage= (props) => {
   setKeyWord1,
   setKeyWord2,
   setUserChartData,
-  toggleUserTrendClicked
+  toggleUserTrendClicked,
+  setQuizSelection
   } = props
 
 
@@ -81,6 +84,24 @@ const JanPage= (props) => {
     setKeyWord1('')
     setKeyWord2('')
   }
+
+  const handleClickKW1 = (e)=>{
+    setQuizSelection(janState.mainTrend.key_word_1)
+    if(janState.mainTrend.key_word_1 === janState.mainTrend.winner){
+      e.target.style.backgroundColor= "green"
+    }else{
+      e.target.style.backgroundColor= "red"
+    }
+  }
+
+  const handleClickKW2 = (e)=>{
+    setQuizSelection(janState.mainTrend.key_word_2)
+    if(janState.mainTrend.key_word_2 === janState.mainTrend.winner){
+      e.target.style.backgroundColor= "green"
+    }else{
+      e.target.style.backgroundColor= "red"
+    }
+  }
   
 
   useEffect(() => {
@@ -94,28 +115,23 @@ const JanPage= (props) => {
 
 
   if(janState.userTrendClicked){
-    return(<div><form onSubmit={handleSubmit}>
+    return(<div className="jan-section"><form onSubmit={handleSubmit}>
           DIY:<input name="key_word_1" value={janState.keyWord1} onChange={handleChangeKW1} placeholder="Word or Phrase 1"></input>
           vs.<input name="key_word_1" value={janState.keyWord2} onChange={handleChangeKW2} placeholder="Word or Phrase 2"></input>
           <button>go</button>
           </form>
           {janState.userTrend? (<div>{janState.userTrend.winner}<UserChart userTrend={janState.userTrend} setUserChartData={setUserChartData} userChartData={janState.userChartData}/></div>): (null)}
-          </div>)
+          <button onClick={()=>toggleUserTrendClicked(false)} >back</button></div>)
   }
       return(
       <div className="jan-section">
-        Main Matchup: {janState.mainTrend.key_word_1}
+        What was more searched in January 2020?
+        <div className="matchup-quiz">
+        <button onClick={handleClickKW1}>{janState.mainTrend.key_word_1}</button>
         vs.
-        {janState.mainTrend.key_word_2}
-        =
-        {janState.mainTrend.winner}
-        <div><form onSubmit={handleSubmit}>
-          DIY:<input name="key_word_1" value={janState.keyWord1} onChange={handleChangeKW1} placeholder="Word or Phrase 1"></input>
-          vs.<input name="key_word_1" value={janState.keyWord2} onChange={handleChangeKW2} placeholder="Word or Phrase 2"></input>
-          <button>go</button>
-          </form>
-          {janState.userTrend? (<div>{janState.userTrend.winner}<UserChart userTrend={janState.userTrend} setUserChartData={setUserChartData} userChartData={janState.userChartData}/></div>): (null)}
-          </div>
+        <button onClick={handleClickKW2}>{janState.mainTrend.key_word_2}</button>
+        </div>
+        {janState.quizSelection? (<div><h4>Test was boooooomin in January</h4><button onClick={()=>toggleUserTrendClicked(true)}>Run your own matchup</button></div>) : (null)}
          </div>   
          )
         }
