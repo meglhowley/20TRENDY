@@ -1,5 +1,6 @@
 from models.db import db
 from datetime import datetime
+from sqlalchemy.sql import table, column
 
 
 class User(db.Model):

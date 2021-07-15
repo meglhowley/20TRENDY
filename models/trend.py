@@ -64,3 +64,13 @@ class Trend(db.Model):
     def find_by_id(cls, trend_id):
         trend = Trend.query.filter_by(id=trend_id).first()
         return trend
+
+    @classmethod
+    def find_by_date(cls, time_frame_id):
+        trend = Trend.query.filter_by(time_frame=time_frame_id).all()
+        return trend
+
+    @classmethod
+    def find_by_user_id(cls, id):
+        trend = Trend.query.filter_by(user_id=id).first()
+        return trend

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,200&family=Spartan:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,350&family=Spartan:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Unicase:wght@600&family=Courgette&family=DM+Serif+Text:ital@1&family=Nothing+You+Could+Do&family=Poiret+One&family=Space+Mono:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Cinzel&family=Cormorant+Unicase:wght@600&family=Courgette&family=Cutive+Mono&family=DM+Serif+Text:ital@1&family=Diplomata&family=EB+Garamond:wght@500&family=Gravitas+One&family=Major+Mono+Display&family=Manrope:wght@200&family=Merriweather:wght@700&family=Nothing+You+Could+Do&family=Poiret+One&family=Rubik&family=Sansita+Swashed&family=Space+Mono:ital@1&family=Sulphur+Point&display=swap');
 
 body{
   margin: 0;
@@ -6,27 +8,38 @@ body{
 
 .title{
   position: absolute;
-  top: 8vh;
+  top: 11vh;
   font-family: 'Spartan', sans-serif;
-  font-size: 20vw;
-  margin-left: 200px;
+  font-size: 18vw;
+  left: 5vw;
   width: fit-content;
   line-height: 100%;
+  padding-right: 80px;
+  border-right: 8px solid black;
 }
 
 .title-section{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   height: 100vh;
   width: 99vw;
 }
 
 .bio{
   font-size: 1.75vw;
-  text-align: right;
+  text-align: left;
   font-family: 'Roboto Mono', monospace;
-  width: 500px;
+  /* font-family: 'Space Mono', monospace; */
+  /* font-family: 'DM Serif Text', serif; */
+  /* font-family: 'Major Mono Display', monospace; */
+  /* font-family: 'Gravitas One', cursive; */
+  /* font-family: 'Diplomata', cursive; */
+  width: 600px;
   position: absolute;
-  right: 13vw;
-  top: 25vh;  
+  right: 15vw;
+  top: 23vh;
+  line-height: 120%;
 }
 
 .auth-section{
@@ -36,8 +49,74 @@ body{
   align-items: center;
   height: 99vh;
   width: 99vw;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1em;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.auth-section button{
+  font-family: 'Manrope', sans-serif;
+  height: 30px;
+  width: 100px;
+  margin: 10px;
+  font-size: .9em;
+  box-shadow: none;
+  border-color: transparent;
+  background-color: rgb(53, 53, 53);
+  color: white;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.auth-section button:hover{
+  background-color: rgb(245, 244, 244);
+  color: rgb(43, 43, 43);
+  border-color: rgb(83, 83, 83);
+  cursor: pointer;
+  transition: 300ms;
 }
 
 .register-form{
 text-align: center;
+}
+
+.virus-animation{
+  position: absolute;
+  bottom: 7vh;
+  right: 3vw;
+}
+
+.down-arrow{
+  position: absolute;
+  left: 46.5vw;
+  bottom: -2vh;
+  height: fit-content;
+  width: fit-content;
+}
+
+.jan-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
+}
+
+.jan-recap-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 99vw;
+  background-color: rgb(17, 17, 17);
+  color: white;
+  text-align: center;
+}
+
+.chart{
+  font-family: 'Manrope', sans-serif;
 }

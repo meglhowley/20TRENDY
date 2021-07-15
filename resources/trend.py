@@ -35,3 +35,15 @@ class TrendDetail(Resource):
         db.session.delete(trend)
         db.session.commit()
         return {"msg": "Trend Deleted", "payload": trend_id}
+
+
+class TrendsByDate(Resource):
+    def get(self, time_frame_id):
+        trends = Trend.find_by_date(time_frame_id)
+        return [t.json() for t in trends], 200
+
+
+class GetTrendsByUserId(Resource):
+    def get(self, user_id):
+        trend = Trend.find_by_user_id(user_id)
+        return trend.json()

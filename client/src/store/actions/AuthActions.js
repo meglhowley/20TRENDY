@@ -28,7 +28,6 @@ export const HandleLogin= (body) =>{
   return async (dispatch) => {
     try {
       const res = await Login(body)
-      console.log(res)
       localStorage.setItem('token', res.token)
       dispatch({ type: LOGIN, payload: { email: '', password: '' } })
     } catch (error) {

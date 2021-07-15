@@ -9,6 +9,8 @@ SetLoginForm,
 ToggleRegisterClicked,
 ToggleLoginClicked
 } from '../store/actions/AuthActions'
+import "animate.css/animate.min.css"
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const mapStateToProps = ({ authState }) => {
   return { authState }
@@ -67,20 +69,27 @@ const AuthPage= (props) => {
     e.preventDefault()
     handleLogin(authState.loginForm)
     getToken()
+    console.log(localStorage)
+  }
+
+  const logOut= ()=>{
+    localStorage.clear()
+    setAuthenticated(false)
+    console.log(localStorage)
   }
 
 
   useEffect(() => {
     getToken()
+    console.log(localStorage)
   }, [])
 
 
 if(!authState.registerClicked && !authState.loginClicked){
 return(
-<div className="auth-section">  <p>To continue to viewing experience, please:</p>
-      <button onClick={()=>toggleRegisterClicked(true)}>Sign Up</button>
-         or
-          <button onClick={()=>toggleLoginClicked(true)}>Log In</button>
+<div className="auth-section">  <p>TO CONTINUE TO VIEWING EXPERIENCE, PLEASE <br />SIGN UP OR LOG IN:</p>
+      <div className="signup-login-btns"><button onClick={()=>toggleRegisterClicked(true)}>◐ SIGN UP</button>
+          <button onClick={()=>toggleLoginClicked(true)}>◓ LOG IN</button></div>
           </div>
 )
 }
@@ -99,9 +108,10 @@ if(authState.registerClicked){
        <br />
        <input name="password" value={authState.registerForm.password} onChange={handleChangeRegister} placeholder="Confirm Password"></input>
        <br />
-       <button>Submit</button>
+       <button>SUBMIT</button>
      </form>
-     <button onClick={()=>toggleRegisterClicked(false)}>Back</button>
+     <button onClick={()=>toggleRegisterClicked(false)}>BACK</button>
+     <button onClick={logOut}>LOG OUT</button>
      </div>)
     }
 
@@ -113,9 +123,9 @@ if(authState.registerClicked){
            <br />
            <input name="password" value={authState.loginForm.password} onChange={handleChangeLogin} placeholder="Enter your Password"></input>
            <br />
-           <button>Submit</button>
+           <button>SUBMIT</button>
          </form>
-         <button onClick={()=>toggleLoginClicked(false)}>Back</button>
+         <button onClick={()=>toggleLoginClicked(false)}>BACK</button>
          </div>)
         }
 }
