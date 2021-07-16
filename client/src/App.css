@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,350&family=Spartan:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Unicase:wght@600&family=Courgette&family=DM+Serif+Text:ital@1&family=Nothing+You+Could+Do&family=Poiret+One&family=Space+Mono:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Cinzel&family=Cormorant+Unicase:wght@600&family=Courgette&family=Cutive+Mono&family=DM+Serif+Text:ital@1&family=Diplomata&family=EB+Garamond:wght@500&family=Gravitas+One&family=Major+Mono+Display&family=Manrope:wght@200&family=Merriweather:wght@700&family=Nothing+You+Could+Do&family=Poiret+One&family=Rubik&family=Sansita+Swashed&family=Space+Mono:ital@1&family=Sulphur+Point&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Hairline&family=Cinzel&family=Cormorant+Unicase:wght@600&family=Courgette&family=Cutive+Mono&family=DM+Serif+Text:ital@1&family=Diplomata&family=EB+Garamond:wght@500&family=Gravitas+One&family=Major+Mono+Display&family=Manrope:wght@200&family=Merriweather:wght@700&family=Nothing+You+Could+Do&family=Poiret+One&family=Public+Sans:wght@700&family=Rubik&family=Sansita+Swashed&family=Space+Mono:ital@1&family=Sulphur+Point&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto:wght@300&display=swap');
 
-body{
+body {
   margin: 0;
 }
 
-.title{
+.title {
   position: absolute;
   top: 11vh;
   font-family: 'Spartan', sans-serif;
@@ -18,7 +20,7 @@ body{
   border-right: 8px solid black;
 }
 
-.title-section{
+.title-section {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -26,41 +28,43 @@ body{
   width: 99vw;
 }
 
-.bio{
+.bio {
   font-size: 1.75vw;
   text-align: left;
-  font-family: 'Roboto Mono', monospace;
-  /* font-family: 'Space Mono', monospace; */
-  /* font-family: 'DM Serif Text', serif; */
-  /* font-family: 'Major Mono Display', monospace; */
-  /* font-family: 'Gravitas One', cursive; */
-  /* font-family: 'Diplomata', cursive; */
-  width: 600px;
+  font-family: 'Public Sans', sans-serif;
+  width: 480px;
   position: absolute;
-  right: 15vw;
-  top: 23vh;
-  line-height: 120%;
+  left: 55vw;
+  top: 12vh;
+  line-height: 150%;
 }
 
-.auth-section{
+.bio p {
+  margin-top: -15px;
+  font-weight: lighter;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+}
+
+.auth-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 99vh;
   width: 99vw;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1.1em;
   font-weight: bolder;
   text-align: center;
 }
 
-.auth-section button{
+.auth-section button {
   font-family: 'Manrope', sans-serif;
   height: 30px;
   width: 100px;
   margin: 10px;
-  font-size: .9em;
+  font-size: 0.9em;
   box-shadow: none;
   border-color: transparent;
   background-color: rgb(53, 53, 53);
@@ -70,7 +74,7 @@ body{
   margin-right: 15px;
 }
 
-.auth-section button:hover{
+.auth-section button:hover {
   background-color: rgb(245, 244, 244);
   color: rgb(43, 43, 43);
   border-color: rgb(83, 83, 83);
@@ -78,25 +82,25 @@ body{
   transition: 300ms;
 }
 
-.register-form{
-text-align: center;
+.register-form {
+  text-align: center;
 }
 
-.virus-animation{
+.virus-animation {
   position: absolute;
-  bottom: 7vh;
+  bottom: 9vh;
   right: 3vw;
 }
 
-.down-arrow{
+.down-arrow {
   position: absolute;
-  left: 46.5vw;
-  bottom: -2vh;
+  left: 50vw;
+  bottom: 47.5vh;
   height: fit-content;
   width: fit-content;
 }
 
-.jan-section{
+.jan-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,29 +109,37 @@ text-align: center;
   width: 99vw;
 }
 
-.jan-recap-section{
+.jan-recap-section {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3vw;
+  font-weight: bolder;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 99vw;
+  height: 101vh;
+  width: 99.1vw;
   background-color: rgb(17, 17, 17);
   color: white;
   text-align: center;
 }
 
-.chart{
+.jan-recap-section div {
+  width: 50vw;
+  text-shadow: 2px 2px 17px white;
+}
+
+.chart {
   font-family: 'Manrope', sans-serif;
 }
 
-.matchup-quiz{
+.matchup-quiz {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.matchup-quiz button{
+.matchup-quiz button {
   font-family: 'Manrope', sans-serif;
   font-size: 1.5em;
   height: 50px;
@@ -136,4 +148,36 @@ text-align: center;
   box-shadow: none;
   border-radius: 20px;
   margin: 10px;
+}
+
+.matchup-words {
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+.matchup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: solid 1px black;
+  width: 100px;
+  text-align: center;
+  margin: 30px;
+  height: 25px;
+}
+
+.explore-btn {
+  background-color: tomato;
+  color: white;
+  box-shadow: none;
+  border-color: transparent;
+  font-size: 0.65em;
+  padding: 7px;
+}
+
+.explore-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

@@ -3,6 +3,16 @@ from flask import request
 from flask_restful import Resource
 from models.trend import Trend
 from models.db import db
+from pytrends.request import TrendReq
+
+pytrends = TrendReq(hl='en-US')
+
+
+def check_trends(keywords, time_frame):
+    pytrends.build_payload(keywords, cat='0',
+                           timeframe=time_frame, geo='', gprop='')
+    data = pytrends.interest_over_time()
+    return data
 
 
 class Trends(Resource):
@@ -23,8 +33,21 @@ class TrendDetail(Resource):
         trend = Trend.find_by_id(trend_id)
         if not trend:
             return {"msg": "Trend not found"}, 404
-        for k in data.keys():
-            setattr(trend, k, data[k])
+        setattr(trend, "key_word_1", data["key_word_1"])
+        setattr(trend, "key_word_2", data["key_word_2"])
+        result= check_trends([data["key_word_1"], data["key_word_2"]], data["time_frame"])
+        arr_kw_1 = result[data["key_word_1"]].tolist()
+        arr_kw_2 = result[data["key_word_2"]].tolist()
+        arr_strings_kw_1 = [str(x) for x in arr_kw_1]
+        arr_strings_kw_2 = [str(x) for x in arr_kw_2]
+        setattr(trend, "trend_kw_1", " ".join(arr_strings_kw_1))
+        setattr(trend, "trend_kw_2", " ".join(arr_strings_kw_2))
+        mean_kw_1 = int(result[data["key_word_1"]].mean())
+        mean_kw_2 = int(result[data["key_word_2"]].mean())
+        if mean_kw_1 > mean_kw_2:
+            setattr(trend, "winner", data["key_word_1"])
+        else:
+            setattr(trend, "winner", data["key_word_2"])
         db.session.commit()
         return trend.json(), 200
 
