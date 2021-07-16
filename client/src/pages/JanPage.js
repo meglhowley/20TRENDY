@@ -15,6 +15,7 @@ import {
   ToggleDisableBtns
 } from '../store/actions/TrendActions'
 import UserChart from '../components/UserChart'
+import MatchupQuiz from '../components/MatchupQuiz'
 
 const mapStateToProps = ({ janState }) => {
   return { janState }
@@ -54,7 +55,7 @@ const JanPage = (props) => {
     toggleDisableBtns
   } = props
 
-  const buttonsRef = useRef()
+  const userQuery = useRef()
 
   const handleChangeKW1 = (e) => {
     setKeyWord1(e.target.value)
@@ -86,7 +87,6 @@ const JanPage = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     createTrend({
-      user_id: localStorage.getItem('user_id'),
       time_frame: '2020-01-01 2020-01-31',
       key_word_1: janState.keyWord1,
       key_word_2: janState.keyWord2
@@ -137,6 +137,8 @@ const JanPage = (props) => {
     removeTrend(janState.userTrend.id)
   }
 
+  const handleAfterQuiz = () => {}
+
   useEffect(() => {
     fetchTrendsByDate('2020-01-01 2020-01-31')
   }, [])
@@ -145,9 +147,18 @@ const JanPage = (props) => {
     populateData(janState.userTrend)
   }, [janState.userTrend])
 
-  if (janState.userTrendClicked) {
-    return (
+  return (
+    <div>
       <div className="jan-section">
+        <MatchupQuiz
+          state={janState}
+          toggleDisableBtns={toggleDisableBtns}
+          setQuizSelection={setQuizSelection}
+          toggleUserTrendClicked={toggleUserTrendClicked}
+        />
+        <button onClick={handleAfterQuiz}>Down</button>
+      </div>
+      <div ref={userQuery} className="jan-section">
         {!janState.userTrend ? (
           <form onSubmit={handleSubmit}>
             <input
@@ -197,28 +208,6 @@ const JanPage = (props) => {
         )}
         <button onClick={() => toggleUserTrendClicked(false)}>back</button>
       </div>
-    )
-  }
-  return (
-    <div className="jan-section">
-      What was more searched in January 2020?
-      <div className="matchup-quiz">
-        <button disabled={janState.disableBtns} onClick={handleClickKW1}>
-          {janState.mainTrend.key_word_1}
-        </button>
-        vs.
-        <button disabled={janState.disableBtns} onClick={handleClickKW2}>
-          {janState.mainTrend.key_word_2}
-        </button>
-      </div>
-      {janState.quizSelection ? (
-        <div>
-          <h4>Test was boooooomin in January</h4>
-          <button onClick={() => toggleUserTrendClicked(true)}>
-            Run your own matchup
-          </button>
-        </div>
-      ) : null}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import './App.css'
 import AuthPage from './pages/AuthPage'
 import JanPage from './pages/JanPage'
 import JanRecap from './pages/JanRecap'
+import MatchupQuiz from './components/MatchupQuiz'
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { SetAuthenticated } from './store/actions/AuthActions'
@@ -9,8 +10,8 @@ import Lottie from 'react-lottie'
 import virus from './animations/virus.json'
 import downarrow from './animations/downarrow.json'
 
-const mapStateToProps = ({ authState }) => {
-  return { authState }
+const mapStateToProps = ({ authState, janState }) => {
+  return { authState, janState }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -20,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function App(props) {
-  const { authState, setAuthenticated } = props
+  const { authState, janState, setAuthenticated } = props
 
   const authRef = useRef()
 

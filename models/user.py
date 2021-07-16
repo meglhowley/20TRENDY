@@ -16,6 +16,8 @@ class User(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
     trends = db.relationship("Trend", cascade='all',
                              backref=db.backref('trends', lazy=True))
+    posts = db.relationship("Post", cascade='all', backref=db.backref('posts', lazy=True))
+    likes = db.relationship("Like", cascade='all', backref=db.backref('likes', lazy=True))
 
     def __init__(self, first_name, last_name, email, password_digest):
         self.first_name = first_name

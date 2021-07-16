@@ -7,6 +7,10 @@ from resources import trend, auth
 from models.db import db
 from alembic import op
 from datetime import datetime
+import os
+from flask import render_template, request, redirect, url_for
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import  FileStorage
 
 app = Flask(__name__)
 CORS(app)
@@ -30,6 +34,23 @@ api.add_resource(trend.TrendsByDate, '/trends/date/<string:time_frame_id>')
 api.add_resource(auth.Login, '/auth/login')
 api.add_resource(auth.Register, '/auth/register')
 
+
+# @app.route('/upload', methods=['GET', 'POST'])
+# def upload():
+#     if request.method == 'POST':
+#         # save the single "profile" file
+#         file = request.files['image']
+#         newFile= Image(name=file.filename, data=file.read())
+#         db.session.add(newFile)
+#         db.session.commit()
+#         return ('Saved to the database!')
+#     images= Image.find_all()
+#     for x in images:
+#         print(x.name)
+#         print(x.data)
+#     return('hi')
+#     # images.get_data()
+#     # return images
 
 if __name__ == '__main__':
     app.run(debug=True)
