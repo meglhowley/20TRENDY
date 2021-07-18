@@ -6,11 +6,12 @@ const {
   SET_KEY_WORD_1,
   SET_KEY_WORD_2,
   SET_USER_CHART_DATA,
-  TOGGLE_USER_TREND_CLICKED,
+  TOGGLE_PENDING_CHART,
   SET_QUIZ_SELECTION,
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
-  TOGGLE_DISABLE_BTNS
+  TOGGLE_DISABLE_BTNS,
+  SET_RELATED
 } = require('../types')
 
 const iState = {
@@ -20,11 +21,12 @@ const iState = {
   keyWord1: '',
   keyWord2: '',
   userChartData: null,
-  userTrendClicked: false,
+  pendingChart: false,
   quizSelection: '',
   editKW1: false,
   editKW2: false,
-  disableBtns: false
+  disableBtns: false,
+  related: []
 }
 
 const JanTrendReducer = (state = iState, action) => {
@@ -59,8 +61,8 @@ const JanTrendReducer = (state = iState, action) => {
       return { ...state, keyWord2: action.payload }
     case SET_USER_CHART_DATA:
       return { ...state, userChartData: action.payload }
-    case TOGGLE_USER_TREND_CLICKED:
-      return { ...state, userTrendClicked: action.payload }
+    case TOGGLE_PENDING_CHART:
+      return { ...state, pendingChart: action.payload }
     case SET_QUIZ_SELECTION:
       return { ...state, quizSelection: action.payload }
     case TOGGLE_EDIT_KW1:

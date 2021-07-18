@@ -59,6 +59,16 @@ body {
   text-align: center;
 }
 
+.auth-section input {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.8em;
+  margin-bottom: 5px;
+}
+
+.auth-section div {
+  margin-bottom: 5px;
+}
+
 .auth-section button {
   font-family: 'Manrope', sans-serif;
   height: 30px;
@@ -109,63 +119,78 @@ body {
   width: 99vw;
 }
 
+.page-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
+}
+
 .jan-recap-section {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.3vw;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 99vw;
   justify-content: center;
   align-items: center;
-  height: 101vh;
-  width: 99.1vw;
   background-color: rgb(17, 17, 17);
   color: white;
   text-align: center;
 }
 
-.jan-recap-section div {
+.text {
   width: 50vw;
-  text-shadow: 2px 2px 17px white;
+  text-shadow: -5px 4px 8px rgba(255, 255, 255, 0.452);
+}
+
+.next {
+  position: absolute;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.janrecap {
+  top: 285vh;
+}
+
+.travel {
+  top: 385vh;
+}
+
+.next:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.034);
 }
 
 .chart {
   font-family: 'Manrope', sans-serif;
 }
 
-.matchup-quiz {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.matchup-quiz button {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.5em;
-  height: 50px;
-  width: 200px;
-  background-color: white;
-  box-shadow: none;
-  border-radius: 20px;
-  margin: 10px;
-}
-
 .matchup-words {
   display: flex;
   justify-content: center;
   padding-left: 40px;
+  margin-bottom: 20px;
 }
 
-.matchup {
+.word-container {
+  background-color: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 25px;
   border: solid 1px black;
-  width: 100px;
+  width: 120px;
   text-align: center;
   margin: 30px;
   height: 25px;
+  padding: 10px;
 }
 
 .explore-btn {
@@ -180,4 +205,108 @@ body {
 .explore-btn:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.post-img {
+  width: 100px;
+}
+
+.quiz {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  height: 75vh;
+  border-radius: 30px;
+  width: 30vw;
+  box-shadow: -0em 0 0.4em rgba(0, 0, 0, 0.048),
+    0.2em 0 0.9em rgba(0, 0, 0, 0.13);
+}
+
+.quiz header {
+  padding: 50px;
+}
+
+.matchup-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+
+.matchup-items button {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5em;
+  width: 80%;
+  height: 20%;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.matchup-items button:hover {
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to right, white, #edf2ef);
+}
+
+.result {
+  margin-top: 40%;
+}
+
+.trend-form {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.trend-form input {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.go-btn {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.search-prompt {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 40vh;
+}
+
+.edit-word-form {
+  display: flex;
+  /* width: 100%; */
+}
+
+.edit-word-form input {
+  width: 90px;
+  border-color: transparent;
+}
+
+.word-container button {
+  background-color: transparent;
+  float: right;
+  border-color: transparent;
+}
+
+.australian-fires {
+  width: 40vw;
+}
+
+.first-case {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(44, 40, 75);
+  color: white;
+  font-size: 1.3vw;
+  text-align: center;
 }

@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request
 from models.user import User
 from middleware import create_token, gen_password, strip_token, read_token, compare_password
-
+from sqlalchemy.orm import joinedload
 
 class Login(Resource):
     def post(self):
@@ -40,3 +40,10 @@ class Register(Resource):
         user = User(**params)
         user.create()
         return user.json(), 201
+
+class UserLikes(Resource):
+    def get(self, user_id):
+        user = User.query.options(joinedload('likes')).filter_by(id=user_id).first()
+        likes = [l.json() for l in user.likes]
+        return {**user.json(), "likes": likes}, 200
+

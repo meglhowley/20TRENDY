@@ -13,8 +13,8 @@ class Post(db.Model):
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.utcnow)
-    user = db.relationship("User", backref=db.backref('users', lazy=True))
-    likes = db.relationship("Like", cascade='all', backref=db.backref('likes2', lazy=True))
+    user = db.relationship("User", backref=db.backref('users1', lazy=True))
+    likes = db.relationship("Like", cascade='all', backref=db.backref('likes', lazy=True))
 
     def __init__(self, user_id, title, image, bio):
         self.user_id= user_id

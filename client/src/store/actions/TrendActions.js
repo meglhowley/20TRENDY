@@ -13,11 +13,12 @@ import {
   SET_KEY_WORD_1,
   SET_KEY_WORD_2,
   SET_USER_CHART_DATA,
-  TOGGLE_USER_TREND_CLICKED,
+  TOGGLE_PENDING_CHART,
   SET_QUIZ_SELECTION,
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
-  TOGGLE_DISABLE_BTNS
+  TOGGLE_DISABLE_BTNS,
+  SET_RELATED
 } from '../types'
 
 export const FetchTrendsByDate = (timeFrame) => {
@@ -80,8 +81,8 @@ export const SetUserChartData = (body) => ({
   payload: body
 })
 
-export const ToggleUserTrendClicked = (boolean) => ({
-  type: TOGGLE_USER_TREND_CLICKED,
+export const TogglePendingChart = (boolean) => ({
+  type: TOGGLE_PENDING_CHART,
   payload: boolean
 })
 
@@ -103,4 +104,9 @@ export const ToggleEditKW2 = (boolean) => ({
 export const ToggleDisableBtns = (boolean) => ({
   type: TOGGLE_DISABLE_BTNS,
   payload: boolean
+})
+
+export const SetRelated = (array) => ({
+  type: SET_RELATED,
+  payload: array
 })

@@ -4,13 +4,11 @@ from models import trend
 
 data = [
     {
-        "user_id": "1",
         "time_frame": "2020-01-01 2020-01-31",
-        "key_word_1": "test",
-        "key_word_2": "dogs"
+        "key_word_1": "coronavirus",
+        "key_word_2": "kobe bryant"
     }, {
-        "user_id": "1",
-        "time_frame": "2020-01-01 2020-01-31",
+        "time_frame": "2020-02-01 2020-02-28",
         "key_word_1": "test",
         "key_word_2": "resolutions"
     }

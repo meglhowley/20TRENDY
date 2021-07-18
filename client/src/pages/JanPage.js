@@ -8,7 +8,7 @@ import {
   SetKeyWord1,
   SetKeyWord2,
   SetUserChartData,
-  ToggleUserTrendClicked,
+  TogglePendingChart,
   SetQuizSelection,
   ToggleEditKW1,
   ToggleEditKW2,
@@ -16,6 +16,10 @@ import {
 } from '../store/actions/TrendActions'
 import UserChart from '../components/UserChart'
 import MatchupQuiz from '../components/MatchupQuiz'
+import TrendForm from '../components/TrendForm'
+import loading from '../animations/loading.json'
+import Lottie from 'react-lottie'
+import UserKeyWords from '../components/UserKeyWords'
 
 const mapStateToProps = ({ janState }) => {
   return { janState }
@@ -30,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     setKeyWord1: (body) => dispatch(SetKeyWord1(body)),
     setKeyWord2: (body) => dispatch(SetKeyWord2(body)),
     setUserChartData: (body) => dispatch(SetUserChartData(body)),
-    toggleUserTrendClicked: (body) => dispatch(ToggleUserTrendClicked(body)),
+    togglePendingChart: (boolean) => dispatch(TogglePendingChart(boolean)),
     setQuizSelection: (keyword) => dispatch(SetQuizSelection(keyword)),
     toggleEditKW1: (boolean) => dispatch(ToggleEditKW1(boolean)),
     toggleEditKW2: (boolean) => dispatch(ToggleEditKW2(boolean)),
@@ -48,11 +52,12 @@ const JanPage = (props) => {
     setKeyWord1,
     setKeyWord2,
     setUserChartData,
-    toggleUserTrendClicked,
+    togglePendingChart,
     setQuizSelection,
     toggleEditKW1,
     toggleEditKW2,
-    toggleDisableBtns
+    toggleDisableBtns,
+    janPageRef
   } = props
 
   const userQuery = useRef()
@@ -85,6 +90,7 @@ const JanPage = (props) => {
   }
 
   const handleSubmit = (e) => {
+    togglePendingChart(true)
     e.preventDefault()
     createTrend({
       time_frame: '2020-01-01 2020-01-31',
@@ -97,7 +103,6 @@ const JanPage = (props) => {
 
   const handleClickKW1 = (e) => {
     toggleDisableBtns(true)
-    console.log(janState.disableBtns)
     setQuizSelection(janState.mainTrend.key_word_1)
     if (janState.mainTrend.key_word_1 === janState.mainTrend.winner) {
       e.target.style.backgroundColor = '#c3f7ad'
@@ -119,21 +124,34 @@ const JanPage = (props) => {
   const handleEditClicked1 = () => {
     toggleEditKW1(true)
     setKeyWord1(janState.userTrend.key_word_1)
-    console.log(janState.userTrend)
+  }
+
+  const handleEditClicked2 = () => {
+    toggleEditKW2(true)
+    setKeyWord2(janState.userTrend.key_word_2)
   }
 
   const handleEditKW1 = (e) => {
     toggleEditKW1(false)
+    togglePendingChart(true)
     editUserTrend(janState.userTrend.id, {
       key_word_1: janState.keyWord1,
       key_word_2: janState.userTrend.key_word_2,
       time_frame: '2020-01-01 2020-01-31'
     })
-    setKeyWord1('')
+  }
+
+  const handleEditKW2 = (e) => {
+    toggleEditKW2(false)
+    togglePendingChart(true)
+    editUserTrend(janState.userTrend.id, {
+      key_word_1: janState.userTrend.key_word_1,
+      key_word_2: janState.keyWord2,
+      time_frame: '2020-01-01 2020-01-31'
+    })
   }
 
   const handleDelete = (e) => {
-    console.log(janState.userTrend.id)
     removeTrend(janState.userTrend.id)
   }
 
@@ -145,68 +163,95 @@ const JanPage = (props) => {
 
   useEffect(() => {
     populateData(janState.userTrend)
+    togglePendingChart(false)
   }, [janState.userTrend])
 
   return (
     <div>
-      <div className="jan-section">
+      <div ref={janPageRef} className="jan-section">
         <MatchupQuiz
           state={janState}
           toggleDisableBtns={toggleDisableBtns}
           setQuizSelection={setQuizSelection}
-          toggleUserTrendClicked={toggleUserTrendClicked}
         />
-        <button onClick={handleAfterQuiz}>Down</button>
       </div>
       <div ref={userQuery} className="jan-section">
         {!janState.userTrend ? (
-          <form onSubmit={handleSubmit}>
-            <input
-              name="key_word_1"
-              value={janState.keyWord1}
-              onChange={handleChangeKW1}
-              placeholder="Word or Phrase 1"
+          <div className="create-trend-div">
+            <TrendForm
+              handleSubmit={handleSubmit}
+              state={janState}
+              handleChangeKW1={handleChangeKW1}
+              handleChangeKW2={handleChangeKW2}
             />
-            vs.
-            <input
-              name="key_word_1"
-              value={janState.keyWord2}
-              onChange={handleChangeKW2}
-              placeholder="Word or Phrase 2"
-            />
-            <button>go</button>
-          </form>
+          </div>
         ) : null}
         {janState.userTrend ? (
           <div>
-            <div className="matchup-words">
-              {!janState.editKW1 ? (
-                <div className="matchup">
-                  {janState.userTrend.key_word_1}
-                  <button onClick={handleEditClicked1}>x</button>
+            <UserKeyWords
+              state={janState}
+              handleEditKW1={handleEditKW1}
+              handleEditKW2={handleEditKW2}
+              handleEditClicked1={handleEditClicked1}
+              handleEditClicked2={handleEditClicked2}
+              handleChangeKW1={handleChangeKW1}
+              handleChangeKW2={handleChangeKW2}
+            />
+
+            <div>
+              {console.log(janState.pendingChart)}
+              {janState.pendingChart ? (
+                <div className="data-container">
+                  <Lottie
+                    options={{
+                      loop: true,
+                      autoplay: true,
+                      animationData: loading,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }}
+                    isClickToPauseDisabled={true}
+                    height={50}
+                    width={50}
+                  />
                 </div>
               ) : (
-                <div className="matchup-words">
-                  <input value={janState.keyWord1} onChange={handleChangeKW1} />
-                  <button onClick={handleEditKW1}>✓</button>
+                <div className="data-container">
+                  <UserChart
+                    userTrend={janState.userTrend}
+                    setUserChartData={setUserChartData}
+                    userChartData={janState.userChartData}
+                  />
                 </div>
               )}
-              <div className="matchup">
-                {janState.userTrend.key_word_2}
-                <button>x</button>
-              </div>
             </div>
-            <UserChart
-              userTrend={janState.userTrend}
-              setUserChartData={setUserChartData}
-              userChartData={janState.userChartData}
-            />
+            {/* <div>
+              {janState.userTrend.related.split(' ').map((phrase) => {
+                return <div>{phrase}</div>
+              })}
+            </div> */}
             <button onClick={handleDelete}>Delete Matchup</button>
           </div>
+        ) : janState.pendingChart ? (
+          <div className="data-container">
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: loading,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+              isClickToPauseDisabled={true}
+              height={50}
+              width={50}
+            />
+          </div>
         ) : (
-          'Search 2 words or phrases that were trending in January'
+          <div className="data-container">Search two words above!</div>
         )}
-        <button onClick={() => toggleUserTrendClicked(false)}>back</button>
       </div>
     </div>
   )

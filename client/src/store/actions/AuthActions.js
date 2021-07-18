@@ -1,7 +1,4 @@
-import {
- Register,
- Login
-} from '../../services/AuthService'
+import { Register, Login, ProtectedRoute } from '../../services/AuthService'
 
 import {
   REGISTER,
@@ -10,21 +7,33 @@ import {
   SET_REGISTER_FORM,
   SET_LOGIN_FORM,
   TOGGLE_REGISTER_CLICKED,
-  TOGGLE_LOGIN_CLICKED
+  TOGGLE_LOGIN_CLICKED,
+  SET_USER_ID
 } from '../types'
 
-export const HandleRegister= (body) =>{
+export const SetProtectedRoute = () => {
   return async (dispatch) => {
     try {
-      const res = await Register(body)
-      dispatch({ type: REGISTER, payload: true})
+      const res = await ProtectedRoute()
+      dispatch({ type: SET_USER_ID, payload: res })
     } catch (error) {
       throw error
     }
   }
 }
 
-export const HandleLogin= (body) =>{
+export const HandleRegister = (body) => {
+  return async (dispatch) => {
+    try {
+      const res = await Register(body)
+      dispatch({ type: REGISTER, payload: true })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const HandleLogin = (body) => {
   return async (dispatch) => {
     try {
       const res = await Login(body)
@@ -36,7 +45,7 @@ export const HandleLogin= (body) =>{
   }
 }
 
-export const SetAuthenticated= (boolean) =>({
+export const SetAuthenticated = (boolean) => ({
   type: SET_AUTHENTICATED,
   payload: boolean
 })
@@ -46,17 +55,17 @@ export const SetRegisterForm = (body) => ({
   payload: body
 })
 
-export const SetLoginForm= (body) => ({
+export const SetLoginForm = (body) => ({
   type: SET_LOGIN_FORM,
   payload: body
 })
 
-export const ToggleRegisterClicked= (boolean) => ({
+export const ToggleRegisterClicked = (boolean) => ({
   type: TOGGLE_REGISTER_CLICKED,
   payload: boolean
 })
 
-export const ToggleLoginClicked= (boolean) => ({
+export const ToggleLoginClicked = (boolean) => ({
   type: TOGGLE_LOGIN_CLICKED,
   payload: boolean
 })

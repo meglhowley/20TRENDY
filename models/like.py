@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Like(db.Model):
-    __tablename__ = 'posts'
+    __tablename__ = 'likes'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
@@ -11,6 +11,8 @@ class Like(db.Model):
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.utcnow)
+    user = db.relationship("User", backref=db.backref('users2', lazy=True))
+    post = db.relationship("Post", backref=db.backref('posts2', lazy=True))
 
     def __init__(self, user_id, post_id):
         self.user_id= user_id

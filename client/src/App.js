@@ -6,30 +6,46 @@ import MatchupQuiz from './components/MatchupQuiz'
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { SetAuthenticated } from './store/actions/AuthActions'
+import { GetAllPosts, SetUserLikes } from './store/actions/PostActions'
 import Lottie from 'react-lottie'
 import virus from './animations/virus.json'
 import downarrow from './animations/downarrow.json'
+import ContributePage from './pages/ContributePage'
+import PoemPage from './pages/PoemPage'
+import FirePage from './pages/FirePage'
+import TravelPage from './pages/TravelPage'
 
-const mapStateToProps = ({ authState, janState }) => {
-  return { authState, janState }
+const mapStateToProps = ({ authState, janState, postState }) => {
+  return { authState, janState, postState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setAuthenticated: (boolean) => dispatch(SetAuthenticated(boolean))
+    setAuthenticated: (boolean) => dispatch(SetAuthenticated(boolean)),
+    getAllPosts: () => dispatch(GetAllPosts()),
+    setUserLikes: () => dispatch(SetUserLikes())
   }
 }
 
 function App(props) {
-  const { authState, janState, setAuthenticated } = props
+  const {
+    authState,
+    janState,
+    setAuthenticated,
+    getAllPosts,
+    postState,
+    setUserLikes
+  } = props
 
   const authRef = useRef()
+  const janRecapRef = useRef()
+  const janPageRef = useRef()
+  const travelPageRef = useRef()
 
   const getToken = () => {
     const token = localStorage.getItem('token')
     if (token) {
       setAuthenticated(true)
-      console.log(authState.authenticated)
     }
   }
 
@@ -39,7 +55,12 @@ function App(props) {
 
   useEffect(() => {
     getToken()
-  }, [])
+    getAllPosts()
+  }, [postState.posts.length])
+
+  useEffect(() => {
+    setUserLikes()
+  }, [postState.userLikes.length])
 
   return (
     <div className="App">
@@ -92,10 +113,12 @@ function App(props) {
           />
         </div>
       </div>
-      <div ref={authRef}></div>
-      <AuthPage />
-      <JanRecap />
-      <JanPage />
+      <AuthPage authRef={authRef} janRecapRef={janRecapRef} />
+      <JanRecap janRecapRef={janRecapRef} travelPageRef={travelPageRef} />
+      <TravelPage travelPageRef={travelPageRef} janPageRef={janPageRef} />
+      <JanPage janPageRef={janPageRef} />
+      <ContributePage />
+      <PoemPage />
     </div>
   )
 }

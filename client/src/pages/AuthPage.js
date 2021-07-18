@@ -38,7 +38,8 @@ const AuthPage = (props) => {
     setRegisterForm,
     setLoginForm,
     toggleLoginClicked,
-    toggleRegisterClicked
+    toggleRegisterClicked,
+    authRef
   } = props
 
   const getToken = () => {
@@ -51,7 +52,6 @@ const AuthPage = (props) => {
   const handleChangeRegister = (e) => {
     const { name, value } = e.target
     setRegisterForm({ ...authState.registerForm, [name]: value })
-    console.log(authState.registerForm)
   }
 
   const handleSubmitRegister = (e) => {
@@ -62,30 +62,26 @@ const AuthPage = (props) => {
   const handleChangeLogin = (e) => {
     const { name, value } = e.target
     setLoginForm({ ...authState.loginForm, [name]: value })
-    console.log(authState.loginForm)
   }
 
   const handleSubmitLogin = (e) => {
     e.preventDefault()
     handleLogin(authState.loginForm)
     getToken()
-    console.log(localStorage)
   }
 
   const logOut = () => {
     localStorage.clear()
     setAuthenticated(false)
-    console.log(localStorage)
   }
 
   useEffect(() => {
     getToken()
-    console.log(localStorage)
   }, [])
 
   if (!authState.registerClicked && !authState.loginClicked) {
     return (
-      <div className="auth-section">
+      <div ref={props.authRef} className="auth-section">
         {' '}
         <p>
           To continue to viewing experience, <br />
@@ -107,7 +103,8 @@ const AuthPage = (props) => {
 
   if (authState.registerClicked) {
     return (
-      <div className="auth-section">
+      <div ref={props.authRef} className="auth-section">
+        <div>Sign Up</div>
         <form onSubmit={handleSubmitRegister}>
           <input
             name="first_name"
@@ -144,17 +141,17 @@ const AuthPage = (props) => {
             placeholder="Confirm Password"
           ></input>
           <br />
-          <button>SUBMIT</button>
         </form>
+        <button onClick={handleSubmitRegister}>SUBMIT</button>
         <button onClick={() => toggleRegisterClicked(false)}>BACK</button>
-        <button onClick={logOut}>LOG OUT</button>
       </div>
     )
   }
 
   if (authState.loginClicked) {
     return (
-      <div className="auth-section">
+      <div ref={props.authRef} className="auth-section">
+        <div>Log In</div>
         <form onSubmit={handleSubmitLogin}>
           <input
             name="email"
@@ -170,7 +167,13 @@ const AuthPage = (props) => {
             placeholder="Enter your Password"
           ></input>
           <br />
-          <button>SUBMIT</button>
+          <button
+            onClick={() =>
+              props.janRecapRef.current.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            LOG IN
+          </button>
         </form>
         <button onClick={() => toggleLoginClicked(false)}>BACK</button>
       </div>
