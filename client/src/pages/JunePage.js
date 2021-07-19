@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const JanPage = (props) => {
+const JunePage = (props) => {
   const {
     janState,
     fetchTrendsByDate,
@@ -170,7 +170,7 @@ const JanPage = (props) => {
 
   return (
     <div>
-      <div ref={janPageRef} className="jan-section">
+      <div ref={props.junePageRef} className="jan-section">
         <MatchupQuiz
           state={janState}
           toggleDisableBtns={toggleDisableBtns}
@@ -180,7 +180,7 @@ const JanPage = (props) => {
           onClick={() =>
             userQuery.current.scrollIntoView({ behavior: 'smooth' })
           }
-          className="next janquiz"
+          className="next june-quiz"
         >
           <DownArrowBlack />
         </div>
@@ -280,9 +280,9 @@ const JanPage = (props) => {
         )}
         <div
           onClick={() =>
-            firePageRef.current.scrollIntoView({ behavior: 'smooth' })
+            props.sanFranPageRef.current.scrollIntoView({ behavior: 'smooth' })
           }
-          className="next janpage"
+          className="next june-trend"
         >
           <DownArrowBlack />
         </div>
@@ -291,4 +291,4 @@ const JanPage = (props) => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JanPage)
+export default connect(mapStateToProps, mapDispatchToProps)(JunePage)

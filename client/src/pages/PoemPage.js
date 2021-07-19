@@ -4,7 +4,7 @@ import whitenext from '../animations/whitenext.json'
 
 const PoemPage = (props) => {
   return (
-    <div className="page-section">
+    <div ref={props.poemPageRef} className="page-section">
       <ScrollAnimation
         animateIn="animate__fadeInDown"
         animateOut="animate__fadeOutUp"

@@ -10,6 +10,8 @@ import {
   RemoveLike
 } from '../store/actions/PostActions'
 import { SetProtectedRoute } from '../store/actions/AuthActions'
+import Heart from 'react-animated-heart'
+import DownArrowBlack from '../components/DownArrowBlack'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -39,6 +41,8 @@ const ContributePage = (props) => {
     removeLike
   } = props
 
+  const postsRef = useRef()
+
   const handleDelete = (post) => {
     removePost(post.id)
   }
@@ -67,6 +71,10 @@ const ContributePage = (props) => {
     removeLike(likeId)
   }
 
+  const scroll = (scrollOffset) => {
+    postsRef.current.scrollLeft += scrollOffset
+  }
+
   useEffect(() => {
     fetchAllPosts()
     setProtectedRoute()
@@ -80,30 +88,37 @@ const ContributePage = (props) => {
       }
     })
     return (
-      <div key={index}>
-        <h1>{post.title}</h1>
-        <h3>Likes: {post.likes.length}</h3>
-        <button
-          onClick={
-            liked
-              ? () => handleRemoveLike(post.id)
-              : () => handleAddLike(post.id)
-          }
-        >
-          {liked ? 'Remove like' : 'Add Like'}
-        </button>
+      <div className="post-card" key={index}>
+        <div className="post-title">{post.title}</div>
         <img className="post-img" src={post.image} />
+        <div className="liked-div">
+          <Heart
+            className="heart"
+            width={50}
+            isClick={liked}
+            onClick={
+              liked
+                ? () => handleRemoveLike(post.id)
+                : () => handleAddLike(post.id)
+            }
+          />
+          <div>{post.likes.length}</div>
+        </div>
         {postState.userId === post.user_id ? (
           <button onClick={() => handleDelete(post)}>Delete</button>
-        ) : null}
+        ) : null}{' '}
       </div>
     )
   })
 
   return (
-    <div className="jan-section">
-      <div>{allPosts}</div>
-      <form onSubmit={handleSubmit}>
+    <div ref={props.contributePageRef} className="page-section">
+      <div ref={postsRef} className="posts-container">
+        {allPosts}
+      </div>{' '}
+      <button onClick={() => scroll(-500)}>left</button>
+      <button onClick={() => scroll(500)}>right</button>
+      {/* <form onSubmit={handleSubmit}>
         <input
           name="title"
           placeholder="title"
@@ -123,7 +138,17 @@ const ContributePage = (props) => {
           value={postState.postForm.bio}
         />
         <button>post</button>
-      </form>
+      </form> */}
+      <div
+        onClick={() =>
+          props.poemPageRef.current.scrollIntoView({
+            behavior: 'smooth'
+          })
+        }
+        className="next contribute"
+      >
+        <DownArrowBlack />
+      </div>
     </div>
   )
 }

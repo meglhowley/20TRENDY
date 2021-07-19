@@ -42,19 +42,6 @@ const MatchupQuiz = (props) => {
   //   }
   // }
 
-  // const launchPoints = useMemo(
-  //   () => [
-  //     () => ({
-  //       x: window.innerWidth / 2,
-  //       y: window.innerHeight * 0.9,
-  //       angle: 0
-  //     })
-  //   ],
-  //   []
-  // )
-
-  // useEffect(() => {}, [selectedFile])
-
   return (
     <div className="quiz">
       <header>what was more searched in January 2020?</header>
@@ -65,12 +52,16 @@ const MatchupQuiz = (props) => {
         <button disabled={props.state.disableBtns} onClick={handleClickKW2}>
           {props.state.mainTrend.key_word_2}
         </button>
+        {props.state.quizSelection ? (
+          <div className="result">
+            <h4>Test was boooooomin in January</h4>
+          </div>
+        ) : (
+          <div className="result">
+            <h4>Insert commentary Here</h4>
+          </div>
+        )}
       </div>
-      {props.state.quizSelection ? (
-        <div className="result">
-          <h4>Test was boooooomin in January</h4>
-        </div>
-      ) : null}
     </div>
   )
 }

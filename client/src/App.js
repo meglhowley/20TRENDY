@@ -14,6 +14,17 @@ import ContributePage from './pages/ContributePage'
 import PoemPage from './pages/PoemPage'
 import FirePage from './pages/FirePage'
 import TravelPage from './pages/TravelPage'
+import Pandemic from './pages/Pandemic'
+import ActivitiesPage from './pages/ActivitiesPage'
+import MurderHornetsPage from './pages/MurderHornetsAliens'
+import BLMPage from './pages/BLMPage'
+import MarchPage from './pages/MarchPage'
+import SanFranPage from './pages/SanFran'
+import RBGPage from './pages/RBGPage'
+import JunePage from './pages/JunePage'
+import ProtestsPage from './pages/ProtestsPage'
+import BidenPage from './pages/BidenPage'
+import NovemberPage from './pages/NovemberPage'
 
 const mapStateToProps = ({ authState, janState, postState }) => {
   return { authState, janState, postState }
@@ -41,6 +52,20 @@ function App(props) {
   const janRecapRef = useRef()
   const janPageRef = useRef()
   const travelPageRef = useRef()
+  const firePageRef = useRef()
+  const pandemicPageRef = useRef()
+  const activitiesPageRef = useRef()
+  const marchPageRef = useRef()
+  const murderHornetsPageRef = useRef()
+  const BLMPageRef = useRef()
+  const protestsPageRef = useRef()
+  const junePageRef = useRef()
+  const sanFranPageRef = useRef()
+  const RBGPageRef = useRef()
+  const bidenPageRef = useRef()
+  const novemberPageRef = useRef()
+  const contributePageRef = useRef()
+  const poemPageRef = useRef()
 
   const getToken = () => {
     const token = localStorage.getItem('token')
@@ -116,9 +141,45 @@ function App(props) {
       <AuthPage authRef={authRef} janRecapRef={janRecapRef} />
       <JanRecap janRecapRef={janRecapRef} travelPageRef={travelPageRef} />
       <TravelPage travelPageRef={travelPageRef} janPageRef={janPageRef} />
-      <JanPage janPageRef={janPageRef} />
-      <ContributePage />
-      <PoemPage />
+      <JanPage janPageRef={janPageRef} firePageRef={firePageRef} />
+      <FirePage firePageRef={firePageRef} pandemicPageRef={pandemicPageRef} />
+      <Pandemic
+        pandemicPageRef={pandemicPageRef}
+        activitiesPageRef={activitiesPageRef}
+      />
+      <ActivitiesPage
+        activitiesPageRef={activitiesPageRef}
+        marchPageRef={marchPageRef}
+      />
+      <MarchPage
+        marchPageRef={marchPageRef}
+        murderHornetsPageRef={murderHornetsPageRef}
+      />
+      <MurderHornetsPage
+        murderHornetsPageRef={murderHornetsPageRef}
+        BLMPageRef={BLMPageRef}
+      />
+      <BLMPage BLMPageRef={BLMPageRef} protestsPageRef={protestsPageRef} />
+      <ProtestsPage
+        protestsPageRef={protestsPageRef}
+        junePageRef={junePageRef}
+      />
+      <JunePage junePageRef={junePageRef} sanFranPageRef={sanFranPageRef} />
+      <SanFranPage sanFranPageRef={sanFranPageRef} RBGPageRef={RBGPageRef} />
+      <RBGPage RBGPageRef={RBGPageRef} bidenPageRef={bidenPageRef} />
+      <BidenPage
+        bidenPageRef={bidenPageRef}
+        novemberPageRef={novemberPageRef}
+      />
+      <NovemberPage
+        novemberPageRef={novemberPageRef}
+        contributePageRef={contributePageRef}
+      />
+      <ContributePage
+        contributePageRef={contributePageRef}
+        poemPageRef={poemPageRef}
+      />
+      <PoemPage poemPageRef={poemPageRef} />
     </div>
   )
 }

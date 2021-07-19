@@ -117,11 +117,16 @@ body {
   align-items: center;
   height: 99vh;
   width: 99vw;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .page-section {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.3vw;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 99vh;
@@ -163,6 +168,82 @@ body {
   top: 385vh;
 }
 
+.janquiz {
+  top: 489vh;
+}
+
+.janpage {
+  top: 584vh;
+}
+
+.fires {
+  top: 684vh;
+}
+
+.pandemic {
+  top: 784vh;
+}
+
+.activities {
+  top: 884vh;
+}
+
+.march-quiz {
+  top: 984vh;
+}
+
+.march-trend {
+  top: 1084vh;
+}
+
+.murder-hornets {
+  top: 1175vh;
+}
+
+.BLM {
+  top: 1275vh;
+}
+
+.protests {
+  top: 1375vh;
+}
+
+.protests {
+  top: 1375vh;
+}
+
+.june-quiz {
+  top: 1480vh;
+}
+
+.june-trend {
+  top: 1575vh;
+}
+
+.san-fran {
+  top: 1675vh;
+}
+
+.rbg {
+  top: 1770vh;
+}
+
+.biden {
+  top: 1870vh;
+}
+
+.nov-quiz {
+  top: 1975vh;
+}
+
+.nov-trend {
+  top: 2070vh;
+}
+
+.contribute {
+  top: 2170vh;
+}
+
 .next:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.034);
@@ -170,13 +251,6 @@ body {
 
 .chart {
   font-family: 'Manrope', sans-serif;
-}
-
-.matchup-words {
-  display: flex;
-  justify-content: center;
-  padding-left: 40px;
-  margin-bottom: 20px;
 }
 
 .word-container {
@@ -191,6 +265,28 @@ body {
   margin: 30px;
   height: 25px;
   padding: 10px;
+}
+
+.related-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: solid 1px black;
+  width: 60px;
+  height: 60px;
+  padding: 4px;
+  text-align: center;
+  margin: 4px;
+}
+
+.snacks-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  justify-content: center;
+  height: 200px;
+  font-size: 0.75rem;
 }
 
 .explore-btn {
@@ -225,24 +321,33 @@ body {
 }
 
 .quiz header {
-  padding: 50px;
+  padding: 60px;
+  font-size: 2em;
+  text-align: center;
 }
 
 .matchup-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   text-align: center;
   width: 100%;
   height: 50%;
+  margin-top: 10px;
 }
 
 .matchup-items button {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.5em;
   width: 80%;
-  height: 20%;
+  height: 70px;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 20px;
+  margin: 30px;
+}
+.matchup-items button:disabled {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5em;
+  width: 80%;
+  height: 70px;
   background-color: white;
   box-shadow: none;
   border-radius: 20px;
@@ -255,8 +360,14 @@ body {
   background: linear-gradient(to right, white, #edf2ef);
 }
 
+.matchup-items button:disabled:hover {
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  background: none;
+}
+
 .result {
-  margin-top: 40%;
+  margin-top: 20%;
 }
 
 .trend-form {
@@ -300,7 +411,8 @@ body {
 }
 
 .australian-fires {
-  width: 40vw;
+  width: 35vw;
+  border-radius: 15px;
 }
 
 .first-case {
@@ -309,4 +421,100 @@ body {
   color: white;
   font-size: 1.3vw;
   text-align: center;
+}
+
+.fires-div {
+  background: rgb(44, 43, 44);
+  color: white;
+}
+
+.fire-text {
+  text-align: center;
+  margin-bottom: 75px;
+  width: 50vw;
+}
+
+.fire-pic {
+  width: 40vw;
+}
+.pandemic-order {
+  background-color: rgb(124, 213, 219);
+  color: white;
+  text-shadow: none;
+}
+
+.post-card {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  margin-right: 40px;
+}
+
+.post-card img {
+  width: 400px;
+  height: 250px;
+}
+
+.post-title {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.774);
+  color: white;
+}
+
+.posts-container {
+  padding-left: 500px;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 45vw;
+  height: 80vh;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.liked-div {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -2vh;
+  left: -1vw;
+  width: fit-content;
+}
+
+.liked-div div {
+  bottom: 0;
+  margin-left: -20px;
+  font-size: 0.6em;
+}
+
+.matchup-words {
+  display: flex;
+  justify-content: center;
+}
+
+.clear {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-matchup {
+  margin: 0 auto;
+}
+
+.animal-crossing {
+  width: 50vw;
+}
+
+.activities-section {
+  background-color: rgb(240, 237, 88);
+  color: black;
+}
+
+.image-container {
+  background-color: teal;
 }
