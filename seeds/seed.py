@@ -4,14 +4,29 @@ from models import trend
 
 data = [
     {
+        "user_id": None,
         "time_frame": "2020-01-01 2020-01-31",
         "key_word_1": "coronavirus",
         "key_word_2": "kobe bryant"
-    }, {
-        "time_frame": "2020-02-01 2020-02-28",
-        "key_word_1": "test",
-        "key_word_2": "resolutions"
-    }
+    }, 
+{  
+    "user_id": None,
+    "time_frame": "2020-04-01 2020-04-30",
+    "key_word_1": "carole baskin",
+    "key_word_2": "joe exotic"
+},
+{  
+    "user_id": None,
+    "time_frame": "2020-06-01 2020-06-30",
+    "key_word_1": "protests near me",
+    "key_word_2": "where to donate"
+},
+{  
+    "user_id": None,
+    "time_frame": "2020-11-01 2020-11-30",
+    "key_word_1": "vote by mail",
+    "key_word_2": "voter fraud"
+},
 ]
 
 
