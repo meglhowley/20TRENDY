@@ -1,5 +1,5 @@
 const {
-  POST_TREND,
+  POST_TREND_APR,
   UPDATE_TREND,
   DELETE_TREND,
   GET_TRENDS_BY_DATE_APR,
@@ -10,7 +10,6 @@ const {
   SET_QUIZ_SELECTION,
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
-  TOGGLE_DISABLE_BTNS,
   SET_RELATED
 } = require('../types')
 
@@ -25,7 +24,6 @@ const iState = {
   quizSelection: '',
   editKW1: false,
   editKW2: false,
-  disableBtns: false,
   related: []
 }
 
@@ -37,7 +35,7 @@ const AprTrendReducer = (state = iState, action) => {
         monthlyTrends: action.payload,
         mainTrend: action.payload[0]
       }
-    case POST_TREND:
+    case POST_TREND_APR:
       return {
         ...state,
         monthlyTrends: [...state.monthlyTrends, action.payload],
@@ -69,8 +67,6 @@ const AprTrendReducer = (state = iState, action) => {
       return { ...state, editKW1: action.payload }
     case TOGGLE_EDIT_KW2:
       return { ...state, editKW2: action.payload }
-    case TOGGLE_DISABLE_BTNS:
-      return { ...state, disableBtns: action.payload }
     default:
       return { ...state }
   }

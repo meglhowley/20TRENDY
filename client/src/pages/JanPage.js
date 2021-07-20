@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
   FetchTrendsByDateJan,
-  CreateTrend,
+  CreateTrendJan,
   EditUserTrend,
   RemoveTrend,
   SetKeyWord1,
@@ -11,8 +11,7 @@ import {
   TogglePendingChart,
   SetQuizSelection,
   ToggleEditKW1,
-  ToggleEditKW2,
-  ToggleDisableBtns
+  ToggleEditKW2
 } from '../store/actions/TrendActions'
 import UserChart from '../components/UserChart'
 import MatchupQuiz from '../components/MatchupQuiz'
@@ -29,7 +28,7 @@ const mapStateToProps = ({ janState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateJan(date)),
-    createTrend: (body) => dispatch(CreateTrend(body)),
+    createTrend: (body) => dispatch(CreateTrendJan(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
     setKeyWord1: (body) => dispatch(SetKeyWord1(body)),
@@ -38,8 +37,7 @@ const mapDispatchToProps = (dispatch) => {
     togglePendingChart: (boolean) => dispatch(TogglePendingChart(boolean)),
     setQuizSelection: (keyword) => dispatch(SetQuizSelection(keyword)),
     toggleEditKW1: (boolean) => dispatch(ToggleEditKW1(boolean)),
-    toggleEditKW2: (boolean) => dispatch(ToggleEditKW2(boolean)),
-    toggleDisableBtns: (boolean) => dispatch(ToggleDisableBtns(boolean))
+    toggleEditKW2: (boolean) => dispatch(ToggleEditKW2(boolean))
   }
 }
 

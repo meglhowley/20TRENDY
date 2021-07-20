@@ -144,6 +144,7 @@ const AuthPage = (props) => {
         </form>
         <button onClick={handleSubmitRegister}>SUBMIT</button>
         <button onClick={() => toggleRegisterClicked(false)}>BACK</button>
+        <button onClick={logOut}>Log out</button>
       </div>
     )
   }

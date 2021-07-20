@@ -1,5 +1,5 @@
 const {
-  POST_TREND,
+  POST_TREND_NOV,
   UPDATE_TREND,
   DELETE_TREND,
   GET_TRENDS_BY_DATE_NOV,
@@ -37,7 +37,7 @@ const NovTrendReducer = (state = iState, action) => {
         monthlyTrends: action.payload,
         mainTrend: action.payload[0]
       }
-    case POST_TREND:
+    case POST_TREND_NOV:
       return {
         ...state,
         monthlyTrends: [...state.monthlyTrends, action.payload],

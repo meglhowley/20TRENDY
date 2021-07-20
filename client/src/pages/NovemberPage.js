@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
   FetchTrendsByDateNov,
-  CreateTrend,
+  CreateTrendNov,
   EditUserTrend,
   RemoveTrend,
   SetKeyWord1,
@@ -29,7 +29,7 @@ const mapStateToProps = ({ novState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateNov(date)),
-    createTrend: (body) => dispatch(CreateTrend(body)),
+    createTrend: (body) => dispatch(CreateTrendNov(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
     setKeyWord1: (body) => dispatch(SetKeyWord1(body)),
@@ -83,7 +83,7 @@ const NovemberPage = (props) => {
     for (let i = 0; i < trendArr1.length; i++) {
       day += 1
       let dict = {}
-      dict['name'] = `1/${day}`
+      dict['name'] = `11/${day}`
       dict[`${userTrend.key_word_1}`] = parseInt(trendArr1[i])
       dict[`${userTrend.key_word_2}`] = parseInt(trendArr2[i])
       data.push(dict)

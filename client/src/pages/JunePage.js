@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
   FetchTrendsByDateJun,
-  CreateTrend,
+  CreateTrendJun,
   EditUserTrend,
   RemoveTrend,
   SetKeyWord1,
@@ -21,6 +21,16 @@ import loading from '../animations/loading.json'
 import Lottie from 'react-lottie'
 import UserKeyWords from '../components/UserKeyWords'
 import DownArrowBlack from '../components/DownArrowBlack'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts'
 
 const mapStateToProps = ({ junState }) => {
   return { junState }
@@ -29,7 +39,7 @@ const mapStateToProps = ({ junState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateJun(date)),
-    createTrend: (body) => dispatch(CreateTrend(body)),
+    createTrend: (body) => dispatch(CreateTrendJun(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
     setKeyWord1: (body) => dispatch(SetKeyWord1(body)),
