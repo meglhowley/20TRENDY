@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
 import Client from '../services'
-import { Confetti } from 'react-confetti-cannon'
 
 const MatchupQuiz = (props) => {
   useEffect(() => {
