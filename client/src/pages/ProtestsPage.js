@@ -13,6 +13,8 @@ const ProtestsPage = (props) => {
         and racial injustice. Curfews are also declared in Philadelphia and
         Atlanta.
       </div>
+      <br />
+      <br />
       <Lottie
         options={{
           loop: true,

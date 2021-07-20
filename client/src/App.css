@@ -55,10 +55,29 @@ body {
   padding: -50px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .title-section {
     display: flex;
     flex-direction: row;
+  }
+
+  .page-section div {
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .quiz {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: 75vh;
+    border-radius: 30px;
+    width: 900px;
+    box-shadow: -0em 0 0.4em rgba(0, 0, 0, 0.048),
+      0.2em 0 0.9em rgba(0, 0, 0, 0.13);
   }
 
   .left {
@@ -207,8 +226,22 @@ body {
   width: 99vw;
 }
 
+.contribute-section {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
+}
+
 .page-section div {
   width: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .jan-recap-section {
@@ -391,9 +424,9 @@ body {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  height: 75vh;
+  height: 85vh;
   border-radius: 30px;
-  width: 30vw;
+  width: 410px;
   box-shadow: -0em 0 0.4em rgba(0, 0, 0, 0.048),
     0.2em 0 0.9em rgba(0, 0, 0, 0.13);
 }
@@ -446,7 +479,7 @@ body {
 
 .result {
   width: 80%;
-  margin: 8% auto;
+  margin: -3.5% auto;
 }
 
 .trend-form {
@@ -550,6 +583,7 @@ body {
   flex-wrap: nowrap;
   overflow: hidden;
   scroll-behavior: smooth;
+  width: 50%;
 }
 
 .liked-div {
@@ -647,6 +681,7 @@ body {
 .scroll-btns {
   height: 40px;
   display: flex;
+  width: 50%;
   justify-content: space-evenly;
 }
 
@@ -668,5 +703,36 @@ body {
 
 .scroll-btns button:hover {
   opacity: 0.5;
+  cursor: pointer;
+}
+
+.form-container {
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 50px;
+}
+
+.form-container input,
+button {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-container input {
+  width: 80%;
+  margin: 10px;
+}
+
+.form-container button {
+  width: 82%;
+  margin: 10px;
+  height: 40px;
+  font-size: 1.3em;
+  background-color: rgb(255, 98, 98);
+  color: white;
+  border-color: transparent;
+  margin-top: 20px;
+}
+
+.form-container button:hover {
+  opacity: 0.85;
   cursor: pointer;
 }

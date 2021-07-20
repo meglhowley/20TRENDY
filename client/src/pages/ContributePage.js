@@ -57,6 +57,8 @@ const ContributePage = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     addNewPost(postState.postForm)
+    setPostForm({ title: '', image: '', bio: '' })
+    toggleModalOpen(false)
   }
 
   const handleAddLike = (id) => {
@@ -84,11 +86,13 @@ const ContributePage = (props) => {
 
   const allPosts = postState.posts.map((post, index) => {
     let liked = false
-    post.likes.forEach((like, index) => {
-      if (like.user_id === postState.userId) {
-        liked = true
-      }
-    })
+    if (post.likes) {
+      post.likes.forEach((like, index) => {
+        if (like.user_id === postState.userId) {
+          liked = true
+        }
+      })
+    }
     return (
       <div className="post-card" key={index}>
         <div className="post-title">{post.title}</div>
@@ -104,7 +108,7 @@ const ContributePage = (props) => {
                 : () => handleAddLike(post.id)
             }
           />
-          <div>{post.likes.length}</div>
+          <div>{post.likes ? post.likes.length : '0'}</div>
         </div>
         {postState.userId === post.user_id ? (
           <button onClick={() => handleDelete(post)}>Delete</button>
@@ -114,7 +118,7 @@ const ContributePage = (props) => {
   })
 
   return (
-    <div ref={props.contributePageRef} className="page-section">
+    <div ref={props.contributePageRef} className="contribute-section">
       <h2>Archives of 2020</h2>
       <p>Witnessed something uniquely 2020?</p>
       <br />
@@ -155,26 +159,26 @@ const ContributePage = (props) => {
             <form onSubmit={handleSubmit}>
               <input
                 name="title"
-                placeholder="title"
+                placeholder="Create a title"
                 onChange={handleChange}
                 value={postState.postForm.title}
               />
               <br />
               <input
                 name="image"
-                placeholder="image"
+                placeholder="Insert Image URL"
                 onChange={handleChange}
                 value={postState.postForm.image}
               />
               <br />
               <input
                 name="bio"
-                placeholder="bio"
+                placeholder="Create a bio"
                 onChange={handleChange}
                 value={postState.postForm.bio}
               />
               <br />
-              <button>post</button>
+              <button>POST</button>
             </form>
           </div>
         </Modal>
