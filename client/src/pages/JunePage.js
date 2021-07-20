@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import {
   FetchTrendsByDateJun,
@@ -9,10 +9,8 @@ import {
   SetKeyWord2,
   SetUserChartData,
   TogglePendingChart,
-  SetQuizSelection,
   ToggleEditKW1,
-  ToggleEditKW2,
-  ToggleDisableBtns
+  ToggleEditKW2
 } from '../store/actions/TrendActions'
 import UserChart from '../components/UserChart'
 import MatchupQuiz from '../components/MatchupQuiz'
@@ -46,10 +44,8 @@ const mapDispatchToProps = (dispatch) => {
     setKeyWord2: (body) => dispatch(SetKeyWord2(body)),
     setUserChartData: (body) => dispatch(SetUserChartData(body)),
     togglePendingChart: (boolean) => dispatch(TogglePendingChart(boolean)),
-    setQuizSelection: (keyword) => dispatch(SetQuizSelection(keyword)),
     toggleEditKW1: (boolean) => dispatch(ToggleEditKW1(boolean)),
-    toggleEditKW2: (boolean) => dispatch(ToggleEditKW2(boolean)),
-    toggleDisableBtns: (boolean) => dispatch(ToggleDisableBtns(boolean))
+    toggleEditKW2: (boolean) => dispatch(ToggleEditKW2(boolean))
   }
 }
 
@@ -64,13 +60,14 @@ const JunePage = (props) => {
     setKeyWord2,
     setUserChartData,
     togglePendingChart,
-    setQuizSelection,
     toggleEditKW1,
     toggleEditKW2,
-    toggleDisableBtns,
     janPageRef,
     firePageRef
   } = props
+
+  const [disableBtns, toggleDisableBtns] = useState(false)
+  const [quizSelection, setQuizSelection] = useState(false)
 
   const userQuery = useRef()
 
@@ -93,7 +90,7 @@ const JunePage = (props) => {
     for (let i = 0; i < trendArr1.length; i++) {
       day += 1
       let dict = {}
-      dict['name'] = `1/${day}`
+      dict['name'] = `6/${day}`
       dict[`${userTrend.key_word_1}`] = parseInt(trendArr1[i])
       dict[`${userTrend.key_word_2}`] = parseInt(trendArr2[i])
       data.push(dict)
@@ -183,8 +180,10 @@ const JunePage = (props) => {
       <div ref={props.junePageRef} className="jan-section">
         <MatchupQuiz
           state={junState}
-          toggleDisableBtns={toggleDisableBtns}
-          setQuizSelection={setQuizSelection}
+          disableBtns={disableBtns}
+          handleClickKW1={handleClickKW1}
+          handleClickKW2={handleClickKW2}
+          quizSelection={quizSelection}
         />
         <div
           onClick={() =>

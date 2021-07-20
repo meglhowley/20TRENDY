@@ -507,14 +507,27 @@ body {
 }
 
 .animal-crossing {
-  width: 50vw;
+  width: 20vw;
 }
 
 .activities-section {
-  background-color: rgb(240, 237, 88);
-  color: black;
+  background-color: rgb(144, 155, 219);
+  color: white;
 }
 
-.image-container {
-  background-color: teal;
+.text-no-shadow {
+  width: 50vw;
+}
+
+.activities-section p {
+  font-size: 0.8em;
+}
+
+.hornets-ufo {
+  background-color: rgb(208, 250, 109);
+}
+
+.tnook {
+  width: 100px;
+  margin-bottom: 10px;
 }

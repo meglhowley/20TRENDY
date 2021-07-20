@@ -19,7 +19,6 @@ import {
   SET_QUIZ_SELECTION,
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
-  TOGGLE_DISABLE_BTNS,
   SET_RELATED,
   POST_TREND_JAN,
   POST_TREND_APR,
@@ -170,11 +169,6 @@ export const ToggleEditKW1 = (boolean) => ({
 
 export const ToggleEditKW2 = (boolean) => ({
   type: TOGGLE_EDIT_KW2,
-  payload: boolean
-})
-
-export const ToggleDisableBtns = (boolean) => ({
-  type: TOGGLE_DISABLE_BTNS,
   payload: boolean
 })
 

@@ -10,7 +10,6 @@ const {
   SET_QUIZ_SELECTION,
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
-  TOGGLE_DISABLE_BTNS,
   SET_RELATED
 } = require('../types')
 
@@ -25,7 +24,6 @@ const iState = {
   quizSelection: '',
   editKW1: false,
   editKW2: false,
-  disableBtns: false,
   related: []
 }
 
@@ -69,8 +67,6 @@ const NovTrendReducer = (state = iState, action) => {
       return { ...state, editKW1: action.payload }
     case TOGGLE_EDIT_KW2:
       return { ...state, editKW2: action.payload }
-    case TOGGLE_DISABLE_BTNS:
-      return { ...state, disableBtns: action.payload }
     default:
       return { ...state }
   }
