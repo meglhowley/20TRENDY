@@ -68,6 +68,12 @@ const JunePage = (props) => {
 
   const [disableBtns, toggleDisableBtns] = useState(false)
   const [quizSelection, setQuizSelection] = useState(false)
+  const [inquiry, setInquiry] = useState(
+    'In June of 2020, which of the below methods of support for BLM was trending more?'
+  )
+  const [answer, setAnswer] = useState(
+    'People took to the streets globally. Polls estimate that between 15-26 million Americans marched in protest around the world, representing the largest grassroots protest in U.S. history.'
+  )
 
   const userQuery = useRef()
 
@@ -180,6 +186,8 @@ const JunePage = (props) => {
       <div ref={props.junePageRef} className="jan-section">
         <MatchupQuiz
           state={junState}
+          inquiry={inquiry}
+          answer={answer}
           disableBtns={disableBtns}
           handleClickKW1={handleClickKW1}
           handleClickKW2={handleClickKW2}

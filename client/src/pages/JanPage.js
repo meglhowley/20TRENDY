@@ -58,6 +58,12 @@ const JanPage = (props) => {
 
   const [disableBtns, toggleDisableBtns] = useState(false)
   const [quizSelection, setQuizSelection] = useState(false)
+  const [inquiry, setInquiry] = useState(
+    'Quiz! In January of 2020, which of the below was searched the most globally?'
+  )
+  const [answer, setAnswer] = useState(
+    "It's hard to imagine a world where coronavirus was not a household term, but the world's love for Kobe was echoed around the world after his fatal helicopter crash."
+  )
 
   const userQuery = useRef()
 
@@ -170,6 +176,8 @@ const JanPage = (props) => {
       <div ref={janPageRef} className="jan-section">
         <MatchupQuiz
           state={janState}
+          inquiry={inquiry}
+          answer={answer}
           disableBtns={disableBtns}
           handleClickKW1={handleClickKW1}
           handleClickKW2={handleClickKW2}

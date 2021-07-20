@@ -11,10 +11,6 @@ const ActivitiesPage = (props) => {
       ref={props.activitiesPageRef}
       className="page-section activities-section"
     >
-      <img
-        className="tnook"
-        src="https://c.tenor.com/Z0FK5nivytoAAAAj/animal-crossing-tom-nook.gif"
-      />
       <div className="text-no-shadow">
         Late March-April: As stay-at-home orders continue, people take to other
         means to connect with one another remotely.

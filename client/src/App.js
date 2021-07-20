@@ -90,52 +90,41 @@ function App(props) {
   return (
     <div className="App">
       <div className="title-section">
-        <div className="title">
-          20
-          <br />
-          &nbsp;&nbsp;20
+        <div className="left">
+          <div className="title">
+            20
+            <br />
+            &nbsp;&nbsp;20
+          </div>
         </div>
-        <div className="bio">
-          <h2>A Virtual Museum through the Internet of 2020</h2>
-          <p>Powered by pyTrends</p>
-          <button
-            onClick={() =>
-              authRef.current.scrollIntoView({ behavior: 'smooth' })
-            }
-            className="explore-btn"
-          >
-            EXPLORE NOW
-          </button>
-        </div>
-        <div className="virus-animation">
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: virus,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
+        <div className="right">
+          <div className="bio">
+            <h2>A Virtual Museum through the Internet of 2020</h2>
+            <p>Powered by pyTrends</p>
+            <button
+              onClick={() =>
+                authRef.current.scrollIntoView({ behavior: 'smooth' })
               }
-            }}
-            isClickToPauseDisabled={true}
-            height={400}
-            width={400}
-          />
-        </div>
-        <div className="down-arrow">
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: downarrow,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              }
-            }}
-            isClickToPauseDisabled={true}
-            height={100}
-            width={100}
-          />
+              className="explore-btn"
+            >
+              EXPLORE NOW
+            </button>
+          </div>
+          <div className="virus-animation">
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: virus,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+              isClickToPauseDisabled={true}
+              height={400}
+              width={400}
+            />
+          </div>
         </div>
       </div>
       <AuthPage authRef={authRef} janRecapRef={janRecapRef} />

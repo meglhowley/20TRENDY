@@ -58,6 +58,12 @@ const NovemberPage = (props) => {
 
   const [disableBtns, toggleDisableBtns] = useState(false)
   const [quizSelection, setQuizSelection] = useState(false)
+  const [inquiry, setInquiry] = useState(
+    "In November of 2020, what was trending more on voter's minds?"
+  )
+  const [answer, setAnswer] = useState(
+    'Voter fraud surpassed inquiries on how to vote by mail; America saw an unprecedented level distrust in the election process, despite zero voter fraud cases substantiated.'
+  )
 
   const userQuery = useRef()
 
@@ -171,6 +177,8 @@ const NovemberPage = (props) => {
         <MatchupQuiz
           state={novState}
           disableBtns={disableBtns}
+          answer={answer}
+          inquiry={inquiry}
           handleClickKW1={handleClickKW1}
           handleClickKW2={handleClickKW2}
           quizSelection={quizSelection}

@@ -59,6 +59,12 @@ const AprPage = (props) => {
 
   const [disableBtns, toggleDisableBtns] = useState(false)
   const [quizSelection, setQuizSelection] = useState(false)
+  const [inquiry, setInquiry] = useState(
+    'The rivalry of the decade: in April of 2020, who outnumbered who in global searches? 🐯 '
+  )
+  const [answer, setAnswer] = useState(
+    'Hats off to Mr. Exotic, maybe next year Carole (killed her husband, whacked him).'
+  )
 
   const userQuery = useRef()
 
@@ -172,6 +178,8 @@ const AprPage = (props) => {
         <MatchupQuiz
           state={aprState}
           disableBtns={disableBtns}
+          inquiry={inquiry}
+          answer={answer}
           handleClickKW1={handleClickKW1}
           handleClickKW2={handleClickKW2}
           quizSelection={quizSelection}
