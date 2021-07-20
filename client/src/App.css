@@ -424,8 +424,10 @@ body {
 }
 
 .fires-div {
-  background: rgb(44, 43, 44);
+  background: url('https://i1.wp.com/emirateswoman.com/wp-content/uploads/2020/01/australia-bush-fires-donate.png?w=860&crop=0,0,100,430px');
+  background-size: cover;
   color: white;
+  box-shadow: inset 100vw 80vh rgba(75, 75, 75, 0.548);
 }
 
 .fire-text {
@@ -438,7 +440,7 @@ body {
   width: 40vw;
 }
 .pandemic-order {
-  background-color: rgb(124, 213, 219);
+  background-color: rgb(59, 83, 85);
   color: white;
   text-shadow: none;
 }
@@ -511,7 +513,7 @@ body {
 }
 
 .activities-section {
-  background-color: rgb(144, 155, 219);
+  background-color: rgb(18, 15, 20);
   color: white;
 }
 
@@ -524,10 +526,19 @@ body {
 }
 
 .hornets-ufo {
-  background-color: rgb(208, 250, 109);
+  background-color: rgb(64, 62, 185);
+  color: white;
 }
 
 .tnook {
   width: 100px;
   margin-bottom: 10px;
+}
+
+.blm-section {
+  background-color: rgb(20, 20, 20);
+  color: white;
+  background: url('https://cdn.vox-cdn.com/thumbor/1JCzwb9NcX9dEDgzbbqfzvQRzZY=/0x0:5734x3823/1200x675/filters:focal(2368x511:3284x1427)/cdn.vox-cdn.com/uploads/chorus_image/image/67009271/GettyImages_1219234619.0.jpg');
+  background-size: cover;
+  box-shadow: inset 100vw 80vh rgba(75, 75, 75, 0.548);
 }

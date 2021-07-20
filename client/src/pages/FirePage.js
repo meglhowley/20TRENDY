@@ -16,10 +16,6 @@ const FirePage = (props) => {
           continues as thousands of people evacuate and millions of acres burn
         </div>
       </ScrollAnimation>
-      <img
-        className="fire-pic"
-        src="https://i1.wp.com/emirateswoman.com/wp-content/uploads/2020/01/australia-bush-fires-donate.png?w=860&crop=0,0,100,430px"
-      />
       {/* <Lottie
         options={{
           loop: true,
