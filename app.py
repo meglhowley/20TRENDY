@@ -20,7 +20,7 @@ if DATABASE_URL:
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL.replace(
         "://", "ql://", 1)
     app.config['SQLALCHEMY_ECHO'] = False
-    app.env = 'production
+    app.env = 'production'
 else:
     app.debug = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
