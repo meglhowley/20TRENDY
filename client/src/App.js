@@ -105,7 +105,7 @@ function App(props) {
               onClick={() =>
                 authRef.current.scrollIntoView({ behavior: 'smooth' })
               }
-              className="explore-btn"
+              id="explore-btn"
             >
               EXPLORE NOW
             </button>
@@ -121,8 +121,8 @@ function App(props) {
                 }
               }}
               isClickToPauseDisabled={true}
-              height={400}
-              width={400}
+              height={275}
+              width={325}
             />
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import {
   CreateNewPost,
@@ -12,6 +12,7 @@ import {
 import { SetProtectedRoute } from '../store/actions/AuthActions'
 import Heart from 'react-animated-heart'
 import DownArrowBlack from '../components/DownArrowBlack'
+import { Modal } from 'react-rainbow-components'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -42,6 +43,7 @@ const ContributePage = (props) => {
   } = props
 
   const postsRef = useRef()
+  const [modalOpen, toggleModalOpen] = useState(false)
 
   const handleDelete = (post) => {
     removePost(post.id)
@@ -113,32 +115,29 @@ const ContributePage = (props) => {
 
   return (
     <div ref={props.contributePageRef} className="page-section">
+      <h2>Archives of 2020</h2>
+      <p>Witnessed something uniquely 2020?</p>
+      <br />
+      <div className="scroll-btns">
+        <button className="scroll" onClick={() => scroll(-500)}>
+          ◄
+        </button>
+        <button
+          onClick={() => {
+            toggleModalOpen(true)
+          }}
+          className="contribute-btn"
+        >
+          Contribute to Collection
+        </button>
+        <button className="scroll" onClick={() => scroll(500)}>
+          ►
+        </button>
+      </div>
+      <br />
       <div ref={postsRef} className="posts-container">
         {allPosts}
       </div>{' '}
-      <button onClick={() => scroll(-500)}>left</button>
-      <button onClick={() => scroll(500)}>right</button>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          name="title"
-          placeholder="title"
-          onChange={handleChange}
-          value={postState.postForm.title}
-        />
-        <input
-          name="image"
-          placeholder="image"
-          onChange={handleChange}
-          value={postState.postForm.image}
-        />
-        <input
-          name="bio"
-          placeholder="bio"
-          onChange={handleChange}
-          value={postState.postForm.bio}
-        />
-        <button>post</button>
-      </form> */}
       <div
         onClick={() =>
           props.poemPageRef.current.scrollIntoView({
@@ -148,6 +147,37 @@ const ContributePage = (props) => {
         className="next contribute"
       >
         <DownArrowBlack />
+      </div>
+      <div>
+        <Modal isOpen={modalOpen} onRequestClose={() => toggleModalOpen(false)}>
+          <div className="form-container">
+            <h3>Contribute Photo to Collection</h3>
+            <form onSubmit={handleSubmit}>
+              <input
+                name="title"
+                placeholder="title"
+                onChange={handleChange}
+                value={postState.postForm.title}
+              />
+              <br />
+              <input
+                name="image"
+                placeholder="image"
+                onChange={handleChange}
+                value={postState.postForm.image}
+              />
+              <br />
+              <input
+                name="bio"
+                placeholder="bio"
+                onChange={handleChange}
+                value={postState.postForm.bio}
+              />
+              <br />
+              <button>post</button>
+            </form>
+          </div>
+        </Modal>
       </div>
     </div>
   )

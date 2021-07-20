@@ -9,7 +9,6 @@ body {
 }
 
 .title {
-  position: absolute;
   top: 11vh;
   font-family: 'Spartan', sans-serif;
   font-size: 18vw;
@@ -20,32 +19,104 @@ body {
   border-right: 8px solid black;
 }
 
+.title-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
 .left {
-  background-color: thistle;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right {
-  background-color: red;
-  border: 1px solid black;
-}
-
-.title-section {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  width: 99vw;
+  width: 50%;
 }
 
 .bio {
-  background-color: yellow;
+  position: absolute;
   font-size: 1.75vw;
   text-align: left;
   font-family: 'Public Sans', sans-serif;
   width: 480px;
-  left: 55vw;
-  top: 12vh;
+  left: 55%;
+  top: 12%;
   line-height: 150%;
+}
+
+.virus-animation {
+  position: absolute;
+  bottom: 9vh;
+  right: 3vw;
+  padding: -50px;
+}
+
+@media screen and (max-width: 800px) {
+  .title-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+  }
+
+  .title {
+    font-family: 'Spartan', sans-serif;
+    font-size: 27vw;
+    width: fit-content;
+    line-height: 100%;
+    padding-right: 80px;
+    border: 0;
+    margin-left: 11%;
+  }
+
+  .bio {
+    position: absolute;
+    font-size: 3vw;
+    text-align: center;
+    font-family: 'Public Sans', sans-serif;
+    width: fit-content;
+    height: fit-content;
+    left: 0vw;
+    top: 43vh;
+    line-height: 150%;
+  }
+
+  .virus-animation {
+    position: absolute;
+    bottom: 0vh;
+    width: fit-content;
+    left: 17vw;
+    padding: -50px;
+  }
+
+  #explore-btn {
+    background-color: tomato;
+    color: white;
+    box-shadow: none;
+    border-color: transparent;
+    padding: 7px;
+    font-size: 1.3em;
+  }
 }
 
 .bio p {
@@ -105,11 +176,6 @@ body {
   text-align: center;
 }
 
-.virus-animation {
-  bottom: 9vh;
-  right: 3vw;
-}
-
 .down-arrow {
   position: absolute;
   left: 50vw;
@@ -131,7 +197,7 @@ body {
 .page-section {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.3vw;
+  font-size: 1.4em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -139,6 +205,10 @@ body {
   align-items: center;
   height: 99vh;
   width: 99vw;
+}
+
+.page-section div {
+  width: 50%;
 }
 
 .jan-recap-section {
@@ -297,16 +367,16 @@ body {
   font-size: 0.75rem;
 }
 
-.explore-btn {
+#explore-btn {
   background-color: tomato;
   color: white;
   box-shadow: none;
   border-color: transparent;
-  font-size: 0.65em;
   padding: 7px;
+  font-size: 0.9em;
 }
 
-.explore-btn:hover {
+#explore-btn:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -428,7 +498,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   background-color: rgb(44, 40, 75);
   color: white;
-  font-size: 1.3vw;
+  font-size: 1.3em;
   text-align: center;
 }
 
@@ -456,7 +526,6 @@ body {
 
 .post-card {
   position: relative;
-  width: 500px;
   height: 300px;
   margin-right: 40px;
 }
@@ -473,15 +542,12 @@ body {
 }
 
 .posts-container {
-  padding-left: 500px;
   display: flex;
   flex-direction: row;
   align-content: flex-end;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: nowrap;
-  width: 45vw;
-  height: 80vh;
   overflow: hidden;
   scroll-behavior: smooth;
 }
@@ -576,4 +642,31 @@ body {
 
 .ufo {
   margin-top: -10%;
+}
+
+.scroll-btns {
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scroll {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  color: rgb(243, 140, 140);
+}
+
+.contribute-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 0.7em;
+  color: white;
+  background-color: rgb(73, 73, 73);
+}
+
+.scroll-btns button:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
