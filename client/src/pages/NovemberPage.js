@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
-  FetchTrendsByDate,
+  FetchTrendsByDateNov,
   CreateTrend,
   EditUserTrend,
   RemoveTrend,
@@ -22,13 +22,13 @@ import Lottie from 'react-lottie'
 import UserKeyWords from '../components/UserKeyWords'
 import DownArrowBlack from '../components/DownArrowBlack'
 
-const mapStateToProps = ({ janState }) => {
-  return { janState }
+const mapStateToProps = ({ novState }) => {
+  return { novState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDate(date)),
+    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateNov(date)),
     createTrend: (body) => dispatch(CreateTrend(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const NovemberPage = (props) => {
   const {
-    janState,
+    novState,
     fetchTrendsByDate,
     createTrend,
     editUserTrend,
@@ -95,9 +95,9 @@ const NovemberPage = (props) => {
     togglePendingChart(true)
     e.preventDefault()
     createTrend({
-      time_frame: '2020-01-01 2020-01-31',
-      key_word_1: janState.keyWord1,
-      key_word_2: janState.keyWord2
+      time_frame: '2020-11-01 2020-11-30',
+      key_word_1: novState.keyWord1,
+      key_word_2: novState.keyWord2
     })
     setKeyWord1('')
     setKeyWord2('')
@@ -105,8 +105,8 @@ const NovemberPage = (props) => {
 
   const handleClickKW1 = (e) => {
     toggleDisableBtns(true)
-    setQuizSelection(janState.mainTrend.key_word_1)
-    if (janState.mainTrend.key_word_1 === janState.mainTrend.winner) {
+    setQuizSelection(novState.mainTrend.key_word_1)
+    if (novState.mainTrend.key_word_1 === novState.mainTrend.winner) {
       e.target.style.backgroundColor = '#c3f7ad'
     } else {
       e.target.style.backgroundColor = '#fa9191'
@@ -115,8 +115,8 @@ const NovemberPage = (props) => {
 
   const handleClickKW2 = (e) => {
     toggleDisableBtns(true)
-    setQuizSelection(janState.mainTrend.key_word_2)
-    if (janState.mainTrend.key_word_2 === janState.mainTrend.winner) {
+    setQuizSelection(novState.mainTrend.key_word_2)
+    if (novState.mainTrend.key_word_2 === novState.mainTrend.winner) {
       e.target.style.backgroundColor = '#c3f7ad'
     } else {
       e.target.style.backgroundColor = '#fa9191'
@@ -125,54 +125,54 @@ const NovemberPage = (props) => {
 
   const handleEditClicked1 = () => {
     toggleEditKW1(true)
-    setKeyWord1(janState.userTrend.key_word_1)
+    setKeyWord1(novState.userTrend.key_word_1)
   }
 
   const handleEditClicked2 = () => {
     toggleEditKW2(true)
-    setKeyWord2(janState.userTrend.key_word_2)
+    setKeyWord2(novState.userTrend.key_word_2)
   }
 
   const handleEditKW1 = (e) => {
     toggleEditKW1(false)
     togglePendingChart(true)
-    editUserTrend(janState.userTrend.id, {
-      key_word_1: janState.keyWord1,
-      key_word_2: janState.userTrend.key_word_2,
-      time_frame: '2020-01-01 2020-01-31'
+    editUserTrend(novState.userTrend.id, {
+      key_word_1: novState.keyWord1,
+      key_word_2: novState.userTrend.key_word_2,
+      time_frame: '2020-11-01 2020-11-30'
     })
   }
 
   const handleEditKW2 = (e) => {
     toggleEditKW2(false)
     togglePendingChart(true)
-    editUserTrend(janState.userTrend.id, {
-      key_word_1: janState.userTrend.key_word_1,
-      key_word_2: janState.keyWord2,
-      time_frame: '2020-01-01 2020-01-31'
+    editUserTrend(novState.userTrend.id, {
+      key_word_1: novState.userTrend.key_word_1,
+      key_word_2: novState.keyWord2,
+      time_frame: '2020-11-01 2020-11-30'
     })
   }
 
   const handleDelete = (e) => {
-    removeTrend(janState.userTrend.id)
+    removeTrend(novState.userTrend.id)
   }
 
   const handleAfterQuiz = () => {}
 
   useEffect(() => {
-    fetchTrendsByDate('2020-01-01 2020-01-31')
+    fetchTrendsByDate('2020-11-01 2020-11-30')
   }, [])
 
   useEffect(() => {
-    populateData(janState.userTrend)
+    populateData(novState.userTrend)
     togglePendingChart(false)
-  }, [janState.userTrend])
+  }, [novState.userTrend])
 
   return (
     <div>
       <div ref={props.novemberPageRef} className="jan-section">
         <MatchupQuiz
-          state={janState}
+          state={novState}
           toggleDisableBtns={toggleDisableBtns}
           setQuizSelection={setQuizSelection}
         />
@@ -186,20 +186,20 @@ const NovemberPage = (props) => {
         </div>
       </div>
       <div ref={userQuery} className="jan-section">
-        {!janState.userTrend ? (
+        {!novState.userTrend ? (
           <div className="create-trend-div">
             <TrendForm
               handleSubmit={handleSubmit}
-              state={janState}
+              state={novState}
               handleChangeKW1={handleChangeKW1}
               handleChangeKW2={handleChangeKW2}
             />
           </div>
         ) : null}
-        {janState.userTrend ? (
+        {novState.userTrend ? (
           <div>
             <UserKeyWords
-              state={janState}
+              state={novState}
               handleEditKW1={handleEditKW1}
               handleEditKW2={handleEditKW2}
               handleEditClicked1={handleEditClicked1}
@@ -213,8 +213,8 @@ const NovemberPage = (props) => {
               </button>
             </div>
             <div>
-              {console.log(janState.pendingChart)}
-              {janState.pendingChart ? (
+              {console.log(novState.pendingChart)}
+              {novState.pendingChart ? (
                 <div className="data-container">
                   <Lottie
                     options={{
@@ -233,9 +233,9 @@ const NovemberPage = (props) => {
               ) : (
                 <div className="data-container">
                   <UserChart
-                    userTrend={janState.userTrend}
+                    userTrend={novState.userTrend}
                     setUserChartData={setUserChartData}
-                    userChartData={janState.userChartData}
+                    userChartData={novState.userChartData}
                   />
                 </div>
               )}
@@ -243,8 +243,8 @@ const NovemberPage = (props) => {
             <div className="clear">
               <h4>People all searched for:</h4>
               <div className="snacks-container">
-                {!janState.pendingChart
-                  ? janState.userTrend.related
+                {!novState.pendingChart
+                  ? novState.userTrend.related
                       .split(' ')
                       .map((phrase, index) => {
                         return (
@@ -259,7 +259,7 @@ const NovemberPage = (props) => {
               </div>
             </div>
           </div>
-        ) : janState.pendingChart ? (
+        ) : novState.pendingChart ? (
           <div className="data-container">
             <Lottie
               options={{

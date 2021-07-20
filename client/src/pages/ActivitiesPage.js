@@ -22,7 +22,7 @@ const ActivitiesPage = (props) => {
       </div>
       <div
         onClick={() =>
-          props.marchPageRef.current.scrollIntoView({ behavior: 'smooth' })
+          props.aprilPageRef.current.scrollIntoView({ behavior: 'smooth' })
         }
         className="next activities"
       >

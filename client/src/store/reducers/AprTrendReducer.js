@@ -2,7 +2,7 @@ const {
   POST_TREND,
   UPDATE_TREND,
   DELETE_TREND,
-  GET_TRENDS_BY_DATE,
+  GET_TRENDS_BY_DATE_APR,
   SET_KEY_WORD_1,
   SET_KEY_WORD_2,
   SET_USER_CHART_DATA,
@@ -31,7 +31,7 @@ const iState = {
 
 const AprTrendReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_TRENDS_BY_DATE:
+    case GET_TRENDS_BY_DATE_APR:
       return {
         ...state,
         monthlyTrends: action.payload,
@@ -76,4 +76,4 @@ const AprTrendReducer = (state = iState, action) => {
   }
 }
 
-export default JanTrendReducer
+export default AprTrendReducer

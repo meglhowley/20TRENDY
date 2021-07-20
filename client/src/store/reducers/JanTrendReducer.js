@@ -11,7 +11,8 @@ const {
   TOGGLE_EDIT_KW1,
   TOGGLE_EDIT_KW2,
   TOGGLE_DISABLE_BTNS,
-  SET_RELATED
+  SET_RELATED,
+  GET_TRENDS_BY_DATE_JAN
 } = require('../types')
 
 const iState = {
@@ -31,7 +32,7 @@ const iState = {
 
 const JanTrendReducer = (state = iState, action) => {
   switch (action.type) {
-    case GET_TRENDS_BY_DATE:
+    case GET_TRENDS_BY_DATE_JAN:
       return {
         ...state,
         monthlyTrends: action.payload,

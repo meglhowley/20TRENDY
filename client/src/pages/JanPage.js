@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
-  FetchTrendsByDate,
+  FetchTrendsByDateJan,
   CreateTrend,
   EditUserTrend,
   RemoveTrend,
@@ -28,7 +28,7 @@ const mapStateToProps = ({ janState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDate(date)),
+    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateJan(date)),
     createTrend: (body) => dispatch(CreateTrend(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),

@@ -18,7 +18,7 @@ import Pandemic from './pages/Pandemic'
 import ActivitiesPage from './pages/ActivitiesPage'
 import MurderHornetsPage from './pages/MurderHornetsAliens'
 import BLMPage from './pages/BLMPage'
-import MarchPage from './pages/MarchPage'
+import AprilPage from './pages/AprilPage'
 import SanFranPage from './pages/SanFran'
 import RBGPage from './pages/RBGPage'
 import JunePage from './pages/JunePage'
@@ -55,7 +55,7 @@ function App(props) {
   const firePageRef = useRef()
   const pandemicPageRef = useRef()
   const activitiesPageRef = useRef()
-  const marchPageRef = useRef()
+  const aprilPageRef = useRef()
   const murderHornetsPageRef = useRef()
   const BLMPageRef = useRef()
   const protestsPageRef = useRef()
@@ -149,10 +149,10 @@ function App(props) {
       />
       <ActivitiesPage
         activitiesPageRef={activitiesPageRef}
-        marchPageRef={marchPageRef}
+        aprilPageRef={aprilPageRef}
       />
-      <MarchPage
-        marchPageRef={marchPageRef}
+      <AprilPage
+        aprilPageRef={aprilPageRef}
         murderHornetsPageRef={murderHornetsPageRef}
       />
       <MurderHornetsPage

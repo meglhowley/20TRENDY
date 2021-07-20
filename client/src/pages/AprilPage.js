@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
-  FetchTrendsByDate,
+  FetchTrendsByDateApr,
   CreateTrend,
   EditUserTrend,
   RemoveTrend,
@@ -22,13 +22,13 @@ import Lottie from 'react-lottie'
 import UserKeyWords from '../components/UserKeyWords'
 import DownArrowBlack from '../components/DownArrowBlack'
 
-const mapStateToProps = ({ janState }) => {
-  return { janState }
+const mapStateToProps = ({ aprState }) => {
+  return { aprState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDate(date)),
+    fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateApr(date)),
     createTrend: (body) => dispatch(CreateTrend(body)),
     editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
@@ -43,9 +43,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const MarchPage = (props) => {
+const AprPage = (props) => {
   const {
-    janState,
+    aprState,
     fetchTrendsByDate,
     createTrend,
     editUserTrend,
@@ -83,7 +83,7 @@ const MarchPage = (props) => {
     for (let i = 0; i < trendArr1.length; i++) {
       day += 1
       let dict = {}
-      dict['name'] = `1/${day}`
+      dict['name'] = `4/${day}`
       dict[`${userTrend.key_word_1}`] = parseInt(trendArr1[i])
       dict[`${userTrend.key_word_2}`] = parseInt(trendArr2[i])
       data.push(dict)
@@ -95,9 +95,9 @@ const MarchPage = (props) => {
     togglePendingChart(true)
     e.preventDefault()
     createTrend({
-      time_frame: '2020-01-01 2020-01-31',
-      key_word_1: janState.keyWord1,
-      key_word_2: janState.keyWord2
+      time_frame: '2020-04-01 2020-04-30',
+      key_word_1: aprState.keyWord1,
+      key_word_2: aprState.keyWord2
     })
     setKeyWord1('')
     setKeyWord2('')
@@ -105,8 +105,8 @@ const MarchPage = (props) => {
 
   const handleClickKW1 = (e) => {
     toggleDisableBtns(true)
-    setQuizSelection(janState.mainTrend.key_word_1)
-    if (janState.mainTrend.key_word_1 === janState.mainTrend.winner) {
+    setQuizSelection(aprState.mainTrend.key_word_1)
+    if (aprState.mainTrend.key_word_1 === aprState.mainTrend.winner) {
       e.target.style.backgroundColor = '#c3f7ad'
     } else {
       e.target.style.backgroundColor = '#fa9191'
@@ -115,8 +115,8 @@ const MarchPage = (props) => {
 
   const handleClickKW2 = (e) => {
     toggleDisableBtns(true)
-    setQuizSelection(janState.mainTrend.key_word_2)
-    if (janState.mainTrend.key_word_2 === janState.mainTrend.winner) {
+    setQuizSelection(aprState.mainTrend.key_word_2)
+    if (aprState.mainTrend.key_word_2 === aprState.mainTrend.winner) {
       e.target.style.backgroundColor = '#c3f7ad'
     } else {
       e.target.style.backgroundColor = '#fa9191'
@@ -125,54 +125,54 @@ const MarchPage = (props) => {
 
   const handleEditClicked1 = () => {
     toggleEditKW1(true)
-    setKeyWord1(janState.userTrend.key_word_1)
+    setKeyWord1(aprState.userTrend.key_word_1)
   }
 
   const handleEditClicked2 = () => {
     toggleEditKW2(true)
-    setKeyWord2(janState.userTrend.key_word_2)
+    setKeyWord2(aprState.userTrend.key_word_2)
   }
 
   const handleEditKW1 = (e) => {
     toggleEditKW1(false)
     togglePendingChart(true)
-    editUserTrend(janState.userTrend.id, {
-      key_word_1: janState.keyWord1,
-      key_word_2: janState.userTrend.key_word_2,
-      time_frame: '2020-01-01 2020-01-31'
+    editUserTrend(aprState.userTrend.id, {
+      key_word_1: aprState.keyWord1,
+      key_word_2: aprState.userTrend.key_word_2,
+      time_frame: '2020-04-01 2020-04-30'
     })
   }
 
   const handleEditKW2 = (e) => {
     toggleEditKW2(false)
     togglePendingChart(true)
-    editUserTrend(janState.userTrend.id, {
-      key_word_1: janState.userTrend.key_word_1,
-      key_word_2: janState.keyWord2,
-      time_frame: '2020-01-01 2020-01-31'
+    editUserTrend(aprState.userTrend.id, {
+      key_word_1: aprState.userTrend.key_word_1,
+      key_word_2: aprState.keyWord2,
+      time_frame: '2020-04-01 2020-04-30'
     })
   }
 
   const handleDelete = (e) => {
-    removeTrend(janState.userTrend.id)
+    removeTrend(aprState.userTrend.id)
   }
 
   const handleAfterQuiz = () => {}
 
   useEffect(() => {
-    fetchTrendsByDate('2020-01-01 2020-01-31')
+    fetchTrendsByDate('2020-04-01 2020-04-30')
   }, [])
 
   useEffect(() => {
-    populateData(janState.userTrend)
+    populateData(aprState.userTrend)
     togglePendingChart(false)
-  }, [janState.userTrend])
+  }, [aprState.userTrend])
 
   return (
     <div>
-      <div ref={props.marchPageRef} className="jan-section">
+      <div ref={props.aprilPageRef} className="jan-section">
         <MatchupQuiz
-          state={janState}
+          state={aprState}
           toggleDisableBtns={toggleDisableBtns}
           setQuizSelection={setQuizSelection}
         />
@@ -186,20 +186,20 @@ const MarchPage = (props) => {
         </div>
       </div>
       <div ref={userQuery} className="jan-section">
-        {!janState.userTrend ? (
+        {!aprState.userTrend ? (
           <div className="create-trend-div">
             <TrendForm
               handleSubmit={handleSubmit}
-              state={janState}
+              state={aprState}
               handleChangeKW1={handleChangeKW1}
               handleChangeKW2={handleChangeKW2}
             />
           </div>
         ) : null}
-        {janState.userTrend ? (
+        {aprState.userTrend ? (
           <div>
             <UserKeyWords
-              state={janState}
+              state={aprState}
               handleEditKW1={handleEditKW1}
               handleEditKW2={handleEditKW2}
               handleEditClicked1={handleEditClicked1}
@@ -213,8 +213,8 @@ const MarchPage = (props) => {
               </button>
             </div>
             <div>
-              {console.log(janState.pendingChart)}
-              {janState.pendingChart ? (
+              {console.log(aprState.pendingChart)}
+              {aprState.pendingChart ? (
                 <div className="data-container">
                   <Lottie
                     options={{
@@ -233,9 +233,9 @@ const MarchPage = (props) => {
               ) : (
                 <div className="data-container">
                   <UserChart
-                    userTrend={janState.userTrend}
+                    userTrend={aprState.userTrend}
                     setUserChartData={setUserChartData}
-                    userChartData={janState.userChartData}
+                    userChartData={aprState.userChartData}
                   />
                 </div>
               )}
@@ -243,8 +243,8 @@ const MarchPage = (props) => {
             <div className="clear">
               <h4>People all searched for:</h4>
               <div className="snacks-container">
-                {!janState.pendingChart
-                  ? janState.userTrend.related
+                {!aprState.pendingChart
+                  ? aprState.userTrend.related
                       .split(' ')
                       .map((phrase, index) => {
                         return (
@@ -259,7 +259,7 @@ const MarchPage = (props) => {
               </div>
             </div>
           </div>
-        ) : janState.pendingChart ? (
+        ) : aprState.pendingChart ? (
           <div className="data-container">
             <Lottie
               options={{
@@ -293,4 +293,4 @@ const MarchPage = (props) => {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MarchPage)
+export default connect(mapStateToProps, mapDispatchToProps)(AprPage)
