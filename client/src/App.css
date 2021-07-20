@@ -357,7 +357,6 @@ body {
 
 .next:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.034);
 }
 
 .chart {
@@ -424,7 +423,7 @@ body {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  height: 85vh;
+  height: 80vh;
   border-radius: 30px;
   width: 410px;
   box-shadow: -0em 0 0.4em rgba(0, 0, 0, 0.048),
