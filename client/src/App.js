@@ -2,14 +2,12 @@ import './App.css'
 import AuthPage from './pages/AuthPage'
 import JanPage from './pages/JanPage'
 import JanRecap from './pages/JanRecap'
-import MatchupQuiz from './components/MatchupQuiz'
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { SetAuthenticated } from './store/actions/AuthActions'
 import { GetAllPosts, SetUserLikes } from './store/actions/PostActions'
 import Lottie from 'react-lottie'
 import virus from './animations/virus.json'
-import downarrow from './animations/downarrow.json'
 import ContributePage from './pages/ContributePage'
 import PoemPage from './pages/PoemPage'
 import FirePage from './pages/FirePage'
@@ -26,8 +24,8 @@ import ProtestsPage from './pages/ProtestsPage'
 import BidenPage from './pages/BidenPage'
 import NovemberPage from './pages/NovemberPage'
 
-const mapStateToProps = ({ authState, janState, postState }) => {
-  return { authState, janState, postState }
+const mapStateToProps = ({ postState }) => {
+  return { postState }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -39,14 +37,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function App(props) {
-  const {
-    authState,
-    janState,
-    setAuthenticated,
-    getAllPosts,
-    postState,
-    setUserLikes
-  } = props
+  const { setAuthenticated, getAllPosts, postState, setUserLikes } = props
 
   const authRef = useRef()
   const janRecapRef = useRef()
@@ -72,10 +63,6 @@ function App(props) {
     if (token) {
       setAuthenticated(true)
     }
-  }
-
-  const scrollToAuth = () => {
-    authRef.currenet.scrollIntoView({ behavior: 'smooth' })
   }
 
   useEffect(() => {
