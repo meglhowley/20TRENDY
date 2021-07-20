@@ -1,11 +1,11 @@
 import ScrollAnimation from 'react-animate-on-scroll'
 import Lottie from 'react-lottie'
 import essential from '../animations/essential.json'
-import DownArrowBlack from '../components/DownArrowBlack'
+import DownArrowWhite from '../components/DownArrowWhite'
 
 const SanFranPage = (props) => {
   return (
-    <div ref={props.sanFranPageRef} className="page-section">
+    <div ref={props.sanFranPageRef} className="page-section san-fran-section">
       <div>
         Aug. 16: The SCU Lightning Complex fires start, affecting several Bay
         Area counties. Almost 400,000 acres are burned, making it the third
@@ -19,7 +19,7 @@ const SanFranPage = (props) => {
         }
         className="next san-fran"
       >
-        <DownArrowBlack />
+        <DownArrowWhite />
       </div>
     </div>
   )
