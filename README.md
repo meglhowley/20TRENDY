@@ -14,6 +14,10 @@
 
 ---
 
+## _About 20TRENDY_
+
+---
+
 ## _Technologies Used_
 
 **Front End** React Redux | React Hooks | Functional Components| CSS3 | Axios | RESTful API | React-Rainbow
