@@ -6,17 +6,11 @@ import DownArrowWhite from '../components/DownArrowWhite'
 const FirePage = (props) => {
   return (
     <div ref={props.firePageRef} className="page-section fires-div">
-      <ScrollAnimation
-        animateIn="animate__bounceIn"
-        animateOut="animate__bounceOut"
-        offset={150}
-      >
-        <div className="fire-text">
-          February 1: One of the worst fire seasons in Australian history
-          continues as thousands of people evacuate and millions of acres burn
-        </div>
-      </ScrollAnimation>
-      {/* <Lottie
+      <div className="fire-text">
+        February 1: One of the worst fire seasons in Australian history
+        continues as thousands of people evacuate and millions of acres burn
+      </div>
+      <Lottie
         options={{
           loop: true,
           autoplay: true,
@@ -28,7 +22,7 @@ const FirePage = (props) => {
         isClickToPauseDisabled={true}
         height={350}
         width={350}
-      /> */}
+      />
       <div
         onClick={() =>
           props.pandemicPageRef.current.scrollIntoView({ behavior: 'smooth' })

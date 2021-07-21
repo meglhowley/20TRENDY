@@ -536,10 +536,8 @@ body {
 }
 
 .fires-div {
-  background: url('https://i1.wp.com/emirateswoman.com/wp-content/uploads/2020/01/australia-bush-fires-donate.png?w=860&crop=0,0,100,430px');
-  background-size: cover;
+  background-color: tomato;
   color: white;
-  box-shadow: inset 100vw 80vh rgba(75, 75, 75, 0.548);
 }
 
 .fire-text {
@@ -622,7 +620,7 @@ body {
 }
 
 .activities-section {
-  background-color: rgb(77, 16, 53);
+  background-color: rgb(71, 47, 62);
   color: white;
 }
 
