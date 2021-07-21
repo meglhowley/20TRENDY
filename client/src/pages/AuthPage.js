@@ -138,6 +138,7 @@ const AuthPage = (props) => {
             ></input>
             <br />
             <input
+              type="password"
               name="password"
               value={authState.loginForm.password}
               onChange={handleChangeLogin}
