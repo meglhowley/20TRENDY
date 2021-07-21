@@ -39,7 +39,7 @@ body {
 
 .bio {
   position: absolute;
-  font-size: 1.1em;
+  font-size: 1.7em;
   text-align: left;
   font-family: 'Public Sans', sans-serif;
   width: 480px;
@@ -257,7 +257,7 @@ body {
 
 .jan-recap-section {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.3vw;
+  font-size: 1.2em;
   font-weight: bolder;
   display: flex;
   flex-direction: column;
@@ -764,7 +764,7 @@ body {
 }
 
 .rbg-section {
-  background-color: rgb(250, 110, 168);
+  background-color: rgb(241, 144, 184);
   color: white;
   background-size: cover;
 }
