@@ -499,10 +499,11 @@ body {
 
 .data-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
-  height: 40vh;
+  /* width: 40vw;
+  height: 40vh; */
 }
 
 .edit-word-form {

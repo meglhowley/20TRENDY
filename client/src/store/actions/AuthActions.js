@@ -29,7 +29,7 @@ export const HandleRegister = (body) => {
       const res = await Register(body)
       dispatch({ type: REGISTER, payload: true })
     } catch (error) {
-      dispatch({ type: SET_ERROR_MSG, payload: error })
+      throw error
     }
   }
 }

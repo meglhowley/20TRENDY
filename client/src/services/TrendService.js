@@ -9,7 +9,7 @@ export const PostTrend = async (body) => {
     })
     return res.data
   } catch (error) {
-    throw error
+    return 'Oops! No data on one or more of these words. Please adjust search'
   }
 }
 
@@ -18,7 +18,7 @@ export const UpdateTrend = async (id, body) => {
     const res = await Client.put(`/trends/${id}`, body)
     return res.data
   } catch (error) {
-    throw error
+    throw 'Oops! No data on one or more of these words. Please adjust search'
   }
 }
 
