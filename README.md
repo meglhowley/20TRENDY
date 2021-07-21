@@ -70,6 +70,7 @@ See below a layout of the backend structure, which has since been updated to inc
 
 1. PyTrends [PyPI Docs](https://pypi.org/project/pytrends/)
 2. Tanu N. Prabhu- [Google Trends API for Python Tutorial](https://towardsdatascience.com/google-trends-api-for-python-a84bc25db88f)
-3. Animations: [Animate.css](https://animate.style/)
+3. Scroll Animations: [Animate.css](https://animate.style/)
+4. Animations: [Various Users on Lottie](https://lottiefiles.com/search?q=coronavirus&category=animations)
 
 ####
