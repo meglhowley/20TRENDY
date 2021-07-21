@@ -136,6 +136,23 @@ body {
     padding: 7px;
     font-size: 1.3em;
   }
+
+  .poem {
+    margin-top: -10%;
+    text-align: right;
+    width: 35vw;
+    font-size: 0.7em;
+  }
+  .poem-section {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 99vw;
+  }
 }
 
 .bio p {
@@ -752,7 +769,13 @@ body {
   background-size: cover;
 }
 
+.flower {
+  width: 200px;
+  margin-left: 25px;
+}
+
 .poem {
+  margin-top: -10%;
   text-align: right;
   width: 35vw;
 }
@@ -764,12 +787,26 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 99vh;
+  height: 95vh;
   width: 99vw;
+}
+
+footer {
+  padding-top: 60px;
+  padding-bottom: 12px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
 }
 
 .rbg-img {
   width: 300px;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin-top: -7%;
 }
 
 .ufo {
@@ -838,4 +875,21 @@ button {
 .biden-page {
   background-color: rgb(67, 15, 151);
   color: white;
+}
+
+.btn-div button {
+  font-family: 'Manrope', sans-serif;
+  height: 30px;
+  width: 150px;
+  font-size: 0.9em;
+  box-shadow: none;
+  border-color: transparent;
+  background-color: rgb(53, 53, 53);
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-div button:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }

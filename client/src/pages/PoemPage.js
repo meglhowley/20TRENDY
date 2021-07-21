@@ -27,10 +27,16 @@ const PoemPage = (props) => {
           <br />⁣<i>-Leslie Dwight</i>
         </div>
         <div>
-          <img src="https://64.media.tumblr.com/80e2ba523f88769790d292dc45e98984/tumblr_mwsxszrFlg1rm6jd7o1_r2_400.gifv" />
+          <img
+            className="flower"
+            src="https://64.media.tumblr.com/80e2ba523f88769790d292dc45e98984/tumblr_mwsxszrFlg1rm6jd7o1_r2_400.gifv"
+          />
         </div>
       </div>
-      <footer>Hi</footer>
+      <div className="btn-div">
+        <button>BACK TO TOP</button>
+      </div>
+      <footer>2021 Meg L. Howley™ </footer>
     </div>
   )
 }
