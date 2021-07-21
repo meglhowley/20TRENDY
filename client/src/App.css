@@ -747,9 +747,25 @@ body {
 }
 
 .rbg-section {
-  background-color: rgb(243, 139, 182);
+  background-color: rgb(250, 110, 168);
   color: white;
   background-size: cover;
+}
+
+.poem {
+  text-align: right;
+  width: 35vw;
+}
+.poem-section {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
 }
 
 .rbg-img {

@@ -19,6 +19,7 @@ import loading from '../animations/loading.json'
 import Lottie from 'react-lottie'
 import UserKeyWords from '../components/UserKeyWords'
 import DownArrowBlack from '../components/DownArrowBlack'
+import trending from '../animations/trending.json'
 import {
   LineChart,
   Line,
@@ -329,7 +330,22 @@ const JunePage = (props) => {
             />
           </div>
         ) : (
-          <div className="data-container">Search two words above!</div>
+          <div className="data-container">
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: trending,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+              isClickToPauseDisabled={true}
+              height={300}
+              width={300}
+            />
+            <h2>Explore what was trending in June 2020</h2>
+          </div>
         )}
         <div
           onClick={() =>
