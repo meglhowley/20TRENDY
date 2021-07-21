@@ -618,11 +618,11 @@ body {
 }
 
 .animal-crossing {
-  width: 20vw;
+  width: 375px;
 }
 
 .activities-section {
-  background-color: rgb(18, 15, 20);
+  background-color: rgb(77, 16, 53);
   color: white;
 }
 
@@ -632,6 +632,10 @@ body {
 
 .activities-section p {
   font-size: 0.8em;
+}
+
+.vote-gif {
+  width: 300px;
 }
 
 .hornets-ufo {
@@ -665,7 +669,7 @@ body {
 }
 
 .rbg-section {
-  background-color: rgb(255, 170, 206);
+  background-color: rgb(243, 139, 182);
   color: white;
   background-size: cover;
 }
@@ -735,4 +739,9 @@ button {
 .form-container button:hover {
   opacity: 0.85;
   cursor: pointer;
+}
+
+.biden-page {
+  background-color: rgb(94, 52, 161);
+  color: white;
 }
