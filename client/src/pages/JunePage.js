@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
   FetchTrendsByDateJun,
   CreateTrendJun,
-  EditUserTrend,
+  EditUserTrendJun,
   RemoveTrend,
   SetKeyWord1,
   SetKeyWord2,
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendsByDate: (date) => dispatch(FetchTrendsByDateJun(date)),
     createTrend: (body) => dispatch(CreateTrendJun(body)),
-    editUserTrend: (id, body) => dispatch(EditUserTrend(id, body)),
+    editUserTrend: (id, body) => dispatch(EditUserTrendJun(id, body)),
     removeTrend: (id) => dispatch(RemoveTrend(id)),
     setKeyWord1: (body) => dispatch(SetKeyWord1(body)),
     setKeyWord2: (body) => dispatch(SetKeyWord2(body)),
