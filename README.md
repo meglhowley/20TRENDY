@@ -16,6 +16,8 @@
 
 ## _About 20TRENDY_
 
+20TRENDY is an interpretation of a "doom scroll" through the year that changed life as we have come to know it. It is a full stack application with a back-end powered by Pytrend, Google Trend's unofficial API. 20TRENDY allows users to search trending searches at different intervals through 2020, based on what was occuring at the time.
+
 ---
 
 ## _Technologies Used_
@@ -25,6 +27,10 @@
 
 **Back End**
 Python | DB: PostGresSQL | Web Framework: Flask | ORM: SQL Alchemy | [PyTrends](https://pypi.org/project/pytrends/) API | Pandas | Psycopg | Flask-Migrate | Alembic
+
+---
+
+## _Technologies Used_
 
 ---
 
