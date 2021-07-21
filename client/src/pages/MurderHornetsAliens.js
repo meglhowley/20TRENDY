@@ -24,8 +24,8 @@ const MurderHornetsPage = (props) => {
         />
       </div>
       <div>
-        April 27: the Pentagon releases UFO footage and confirms their existence{' '}
-        <br />
+        April 27: the Pentagon releases UFO footage and confirms their
+        existence. <br />
         May 3rd: Asian Giant 'Murder' Hornets invade the US.
       </div>
       <div

@@ -8,8 +8,10 @@ const SanFranPage = (props) => {
     <div ref={props.sanFranPageRef} className="page-section san-fran-section">
       <div>
         Aug. 16: The SCU Lightning Complex fires start, affecting several Bay
-        Area counties. Almost 400,000 acres are burned, making it the third
-        largest wildfire in California history.
+        Area counties.
+        <br />
+        Almost 400,000 acres are burned, making it the third largest wildfire in
+        California history.
       </div>
       <div
         onClick={() =>

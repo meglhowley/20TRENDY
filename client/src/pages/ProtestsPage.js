@@ -8,10 +8,11 @@ const ProtestsPage = (props) => {
   return (
     <div ref={props.protestsPageRef} className="page-section protests-section">
       <div className="protests-div">
-        May 30th: A state of emergency is declared in Los Angeles County and
-        city of Los Angeles because of protests over the death of George Floyd
-        and racial injustice. Curfews are also declared in Philadelphia and
-        Atlanta.
+        May 30th: A state of emergency is declared across multiple cities
+        including <br />
+        Mineapolis, Los Angeles, and Portland as people across the country turn
+        out to protest the murder of <br /> George Floyd and the fight against
+        institutionalized racism in the US.
       </div>
       <br />
       <br />
