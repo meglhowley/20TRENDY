@@ -15,8 +15,8 @@ const UserChart = (props) => {
     <div className="data-container">
       <LineChart
         className="chart"
-        width={700}
-        height={350}
+        width={650}
+        height={300}
         data={props.userChartData}
         margin={{
           top: 5,

@@ -214,7 +214,12 @@ const JunePage = (props) => {
           </div>
         ) : null}
         {junState.userTrend ? (
-          <div>
+          <div className="full-container">
+            <div className="clear-matchup">
+              <button className="clear-matchup-btn" onClick={handleDelete}>
+                Clear Matchup
+              </button>
+            </div>
             <UserKeyWords
               state={junState}
               handleEditKW1={handleEditKW1}
@@ -224,11 +229,6 @@ const JunePage = (props) => {
               handleChangeKW1={handleChangeKW1}
               handleChangeKW2={handleChangeKW2}
             />
-            <div className="clear">
-              <button className="clear-matchup" onClick={handleDelete}>
-                Clear Matchup
-              </button>
-            </div>
             <div>
               {console.log(junState.pendingChart)}
               {junState.pendingChart ? (
@@ -243,8 +243,8 @@ const JunePage = (props) => {
                       }
                     }}
                     isClickToPauseDisabled={true}
-                    height={50}
-                    width={50}
+                    height={100}
+                    width={100}
                   />
                 </div>
               ) : (
@@ -258,21 +258,57 @@ const JunePage = (props) => {
               )}
             </div>
             <div className="clear">
-              <h4>People all searched for:</h4>
+              <h4>People also searched for:</h4>
               <div className="snacks-container">
-                {!junState.pendingChart
-                  ? junState.userTrend.related
-                      .split(' ')
-                      .map((phrase, index) => {
-                        return (
-                          <div>
-                            <div className="related-div animate__animated animate__tada">
-                              {phrase}
-                            </div>
-                          </div>
-                        )
-                      })
-                  : null}
+                {!junState.pendingChart ? (
+                  junState.userTrend.related.split(' ').map((phrase, index) => {
+                    return (
+                      <div>
+                        <div
+                          style={{
+                            backgroundColor:
+                              index === 0
+                                ? 'tomato'
+                                : index === 1
+                                ? '#de6ce0'
+                                : index === 2
+                                ? '#ebb134'
+                                : index === 3
+                                ? '#c6eb34'
+                                : index === 4
+                                ? '#6c98e0'
+                                : index === 5
+                                ? '#8f6ce0'
+                                : index === 6
+                                ? '#a6a05b'
+                                : index === 7
+                                ? 'thistle'
+                                : index === 8
+                                ? '#690325'
+                                : 'navy'
+                          }}
+                          className="related-div animate__animated animate__tada"
+                        >
+                          {phrase}
+                        </div>
+                      </div>
+                    )
+                  })
+                ) : (
+                  <Lottie
+                    options={{
+                      loop: true,
+                      autoplay: true,
+                      animationData: loading,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }}
+                    isClickToPauseDisabled={true}
+                    height={100}
+                    width={100}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -288,8 +324,8 @@ const JunePage = (props) => {
                 }
               }}
               isClickToPauseDisabled={true}
-              height={50}
-              width={50}
+              height={100}
+              width={100}
             />
           </div>
         ) : (

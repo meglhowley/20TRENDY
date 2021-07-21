@@ -13,7 +13,9 @@ const TrendForm = (props) => {
         onChange={props.handleChangeKW2}
         placeholder="Word or Phrase 2"
       />
-      <button className="go-btn">go</button>
+      <div className="gobtndiv">
+        <button className="go-btn">go!</button>
+      </div>
     </form>
   )
 }
