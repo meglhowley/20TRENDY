@@ -57,6 +57,7 @@ function App(props) {
   const novemberPageRef = useRef()
   const contributePageRef = useRef()
   const poemPageRef = useRef()
+  const homePageRef = useRef()
 
   const getToken = () => {
     const token = localStorage.getItem('token')
@@ -76,7 +77,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <div className="title-section">
+      <div ref={homePageRef} className="title-section">
         <div className="left">
           <div className="title">
             20
@@ -155,7 +156,7 @@ function App(props) {
         contributePageRef={contributePageRef}
         poemPageRef={poemPageRef}
       />
-      <PoemPage poemPageRef={poemPageRef} />
+      <PoemPage poemPageRef={poemPageRef} homePageRef={homePageRef} />
     </div>
   )
 }

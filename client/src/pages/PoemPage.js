@@ -34,7 +34,15 @@ const PoemPage = (props) => {
         </div>
       </div>
       <div className="btn-div">
-        <button>BACK TO TOP</button>
+        <button
+          onClick={() =>
+            props.homePageRef.current.scrollIntoView({
+              behavior: 'smooth'
+            })
+          }
+        >
+          BACK TO TOP
+        </button>
       </div>
       <footer>2021 Meg L. Howley™ </footer>
     </div>
