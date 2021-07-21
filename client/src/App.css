@@ -691,9 +691,17 @@ body {
   width: 375px;
 }
 
+.react-player {
+  width: 100px;
+}
+
 .activities-section {
-  background-color: rgb(71, 47, 62);
+  background: url('https://fansided.com/files/2020/03/sc6lt6.jpeg');
   color: white;
+}
+
+.t-pain {
+  background-color: rgba(0, 0, 0, 0.603);
 }
 
 .text-no-shadow {

@@ -15,9 +15,16 @@ const ActivitiesPage = (props) => {
         Late March-April: As stay-at-home orders continue, people take to other
         means to connect with one another remotely.
       </div>
-
       <br />
-      <img className="animal-crossing" src="https://i.imgur.com/f8AvblC.png" />
+      <ReactPlayer
+        width="50%"
+        height="50%"
+        url="https://www.youtube.com/watch?v=EgpJekP261E"
+      />
+      <br />
+      <div className="t-pain">
+        [T. Pain opens his island to the public for tours]
+      </div>
       <div
         onClick={() =>
           props.aprilPageRef.current.scrollIntoView({ behavior: 'smooth' })
