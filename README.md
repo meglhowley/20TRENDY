@@ -30,11 +30,14 @@ Python | DB: PostGresSQL | Web Framework: Flask | ORM: SQL Alchemy | [PyTrends](
 
 ---
 
-## _Technologies Used_
+## _Getting Started_
+
+**Front End** React Redux | React Hooks | Functional Components| CSS3 | Axios | RESTful API | React-Rainbow
+<br />
 
 ---
 
-### _Component Hierarchy Diagram_ || [Lucid Chart](https://lucid.app/lucidchart/c25b7264-131d-4c18-b0ac-cf05a2aed61f/edit?beaconFlowId=863746CA6A2CAF06&invitationId=inv_84a0b470-9c1c-4680-ac9c-a3648c2b4356&page=0_0#)
+## _Component Hierarchy Diagram_ || [Lucid Chart](https://lucid.app/lucidchart/c25b7264-131d-4c18-b0ac-cf05a2aed61f/edit?beaconFlowId=863746CA6A2CAF06&invitationId=inv_84a0b470-9c1c-4680-ac9c-a3648c2b4356&page=0_0#)
 
 ![chd](https://i.imgur.com/jlkyHY7.png)
 
