@@ -11,6 +11,8 @@ import {
 } from '../store/actions/AuthActions'
 import 'animate.css/animate.min.css'
 import ScrollAnimation from 'react-animate-on-scroll'
+import DownArrowBlack from '../components/DownArrowBlack'
+import DownArrowWhite from '../components/DownArrowWhite'
 
 const mapStateToProps = ({ authState }) => {
   return { authState }
@@ -79,9 +81,30 @@ const AuthPage = (props) => {
     getToken()
   }, [])
 
+  if (authState.authenticated) {
+    return (
+      <div ref={authRef} className="auth-section">
+        <h2>Success!</h2>
+        <div
+          onClick={() =>
+            props.janRecapRef.current.scrollIntoView({
+              behavior: 'smooth'
+            })
+          }
+          className="next sign-in"
+        >
+          <DownArrowBlack />
+        </div>
+        <div className="logout">
+          <button onClick={logOut}>Logout</button>
+        </div>
+      </div>
+    )
+  }
+
   if (!authState.registerClicked && !authState.loginClicked) {
     return (
-      <div ref={props.authRef} className="auth-section">
+      <div ref={authRef} className="auth-section">
         {' '}
         <p>
           To continue to viewing experience, <br />
@@ -102,6 +125,33 @@ const AuthPage = (props) => {
   }
 
   if (authState.registerClicked) {
+    if (authState.registered) {
+      return (
+        <div ref={props.authRef} className="auth-section">
+          <div>All set! Please log In:</div>
+          <form onSubmit={handleSubmitLogin}>
+            <input
+              name="email"
+              value={authState.loginForm.email}
+              onChange={handleChangeLogin}
+              placeholder="Email"
+            ></input>
+            <br />
+            <input
+              name="password"
+              value={authState.loginForm.password}
+              onChange={handleChangeLogin}
+              placeholder="Enter your Password"
+            ></input>
+            <br />
+            <div>{authState.errorMsg ? authState.errorMsg : null}</div>
+            <button>LOG IN</button>
+          </form>
+          <button onClick={() => toggleRegisterClicked(false)}>BACK</button>
+        </div>
+      )
+    }
+
     return (
       <div ref={props.authRef} className="auth-section">
         <div>Sign Up</div>
@@ -128,23 +178,16 @@ const AuthPage = (props) => {
           ></input>
           <br />
           <input
+            type="password"
             name="password"
             value={authState.registerForm.password}
             onChange={handleChangeRegister}
             placeholder="Create a Password"
           ></input>
           <br />
-          <input
-            name="password"
-            value={authState.registerForm.password}
-            onChange={handleChangeRegister}
-            placeholder="Confirm Password"
-          ></input>
-          <br />
         </form>
         <button onClick={handleSubmitRegister}>SUBMIT</button>
         <button onClick={() => toggleRegisterClicked(false)}>BACK</button>
-        <button onClick={logOut}>Log out</button>
       </div>
     )
   }
@@ -168,13 +211,8 @@ const AuthPage = (props) => {
             placeholder="Enter your Password"
           ></input>
           <br />
-          <button
-            onClick={() =>
-              props.janRecapRef.current.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            LOG IN
-          </button>
+          <div>{authState.errorMsg ? authState.errorMsg : null}</div>
+          <button>LOG IN</button>
         </form>
         <button onClick={() => toggleLoginClicked(false)}>BACK</button>
       </div>

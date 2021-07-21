@@ -363,6 +363,10 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
+.logout {
+  margin-top: 5%;
+}
+
 .word-container {
   background-color: yellow;
   display: flex;

@@ -8,7 +8,8 @@ import {
   SET_LOGIN_FORM,
   TOGGLE_REGISTER_CLICKED,
   TOGGLE_LOGIN_CLICKED,
-  SET_USER_ID
+  SET_USER_ID,
+  SET_ERROR_MSG
 } from '../types'
 
 export const SetProtectedRoute = () => {
@@ -28,7 +29,7 @@ export const HandleRegister = (body) => {
       const res = await Register(body)
       dispatch({ type: REGISTER, payload: true })
     } catch (error) {
-      throw error
+      dispatch({ type: SET_ERROR_MSG, payload: error })
     }
   }
 }
@@ -37,8 +38,14 @@ export const HandleLogin = (body) => {
   return async (dispatch) => {
     try {
       const res = await Login(body)
-      localStorage.setItem('token', res.token)
-      dispatch({ type: LOGIN, payload: { email: '', password: '' } })
+      if (res.user) {
+        localStorage.setItem('token', res.token)
+        dispatch({ type: LOGIN, payload: { email: '', password: '' } })
+        dispatch({ type: SET_ERROR_MSG, payload: '' })
+        dispatch({ type: SET_AUTHENTICATED, payload: true })
+      } else {
+        dispatch({ type: SET_ERROR_MSG, payload: res })
+      }
     } catch (error) {
       throw error
     }
