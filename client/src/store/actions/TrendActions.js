@@ -6,7 +6,10 @@ import {
 } from '../../services/TrendService'
 
 import {
-  UPDATE_TREND,
+  UPDATE_TREND_JAN,
+  UPDATE_TREND_APR,
+  UPDATE_TREND_JUN,
+  UPDATE_TREND_NOV,
   DELETE_TREND,
   GET_TRENDS_BY_DATE_JAN,
   GET_TRENDS_BY_DATE_APR,
@@ -48,11 +51,44 @@ export const CreateTrendJan = (body) => {
   }
 }
 
-export const EditUserTrend = (id, body) => {
+export const EditUserTrendJan = (id, body) => {
   return async (dispatch) => {
     try {
       const res = await UpdateTrend(id, body)
-      dispatch({ type: UPDATE_TREND, payload: res })
+      dispatch({ type: UPDATE_TREND_JAN, payload: res })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const EditUserTrendApr = (id, body) => {
+  return async (dispatch) => {
+    try {
+      const res = await UpdateTrend(id, body)
+      dispatch({ type: UPDATE_TREND_APR, payload: res })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const EditUserTrendJun = (id, body) => {
+  return async (dispatch) => {
+    try {
+      const res = await UpdateTrend(id, body)
+      dispatch({ type: UPDATE_TREND_JUN, payload: res })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const EditUserTrendNov = (id, body) => {
+  return async (dispatch) => {
+    try {
+      const res = await UpdateTrend(id, body)
+      dispatch({ type: UPDATE_TREND_NOV, payload: res })
     } catch (error) {
       throw error
     }

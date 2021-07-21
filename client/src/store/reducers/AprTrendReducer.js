@@ -1,6 +1,6 @@
 const {
   POST_TREND_APR,
-  UPDATE_TREND,
+  UPDATE_TREND_APR,
   DELETE_TREND,
   GET_TRENDS_BY_DATE_APR,
   SET_KEY_WORD_1,
@@ -41,7 +41,7 @@ const AprTrendReducer = (state = iState, action) => {
         monthlyTrends: [...state.monthlyTrends, action.payload],
         userTrend: action.payload
       }
-    case UPDATE_TREND:
+    case UPDATE_TREND_APR:
       return {
         ...state,
         monthlyTrends: [...state.monthlyTrends, action.payload],

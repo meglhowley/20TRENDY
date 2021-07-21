@@ -1,6 +1,6 @@
 const {
   POST_TREND_JAN,
-  UPDATE_TREND,
+  UPDATE_TREND_JAN,
   DELETE_TREND,
   SET_KEY_WORD_1,
   SET_KEY_WORD_2,
@@ -41,7 +41,7 @@ const JanTrendReducer = (state = iState, action) => {
         monthlyTrends: [...state.monthlyTrends, action.payload],
         userTrend: action.payload
       }
-    case UPDATE_TREND:
+    case UPDATE_TREND_JAN:
       return {
         ...state,
         monthlyTrends: [...state.monthlyTrends, action.payload],
