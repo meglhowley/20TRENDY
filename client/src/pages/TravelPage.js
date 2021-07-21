@@ -11,25 +11,25 @@ const TravelPage = (props) => {
         animateOut="animate__fadeOutRight"
         offset={150}
       >
-        <div>
+        <div className="text-no-shadow">
           <br />
           Jan 31, 2020: White House imposes travel restrictions from China
         </div>
       </ScrollAnimation>
-      <div style={{marginTop: '50px'}}>
-      <Lottie
-        options={{
-          loop: true,
-          autoplay: true,
-          animationData: plane,
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-          }
-        }}
-        isClickToPauseDisabled={true}
-        height={200}
-        width={300}
-      />
+      <div style={{ marginTop: '50px' }}>
+        <Lottie
+          options={{
+            loop: true,
+            autoplay: true,
+            animationData: plane,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          }}
+          isClickToPauseDisabled={true}
+          height={200}
+          width={300}
+        />
       </div>
       <div
         onClick={() =>

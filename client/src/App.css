@@ -238,12 +238,6 @@ body {
   width: 99vw;
 }
 
-.page-section div {
-  width: 50%;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .jan-recap-section {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.3vw;
@@ -284,7 +278,7 @@ body {
 }
 
 .janpage {
-  top: 584vh;
+  top: 588vh;
 }
 
 .fires {
@@ -368,17 +362,19 @@ body {
 }
 
 .word-container {
-  background-color: yellow;
+  background: linear-gradient(to right, white, #ebebeb);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 25px;
-  border: solid 1px black;
+  border: solid 1px rgb(207, 199, 199);
   width: 120px;
   text-align: center;
+  color: rgb(85, 83, 83);
   margin: 30px;
   height: 25px;
   padding: 10px;
+  font-size: 1.4em;
 }
 
 .related-div {
@@ -386,21 +382,21 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  border: solid 1px black;
   width: 60px;
   height: 60px;
   padding: 4px;
   text-align: center;
   margin: 4px;
+  color: white;
 }
 
 .snacks-container {
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
+  width: 450px;
   justify-content: center;
   height: 200px;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 #explore-btn {

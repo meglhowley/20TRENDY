@@ -7,7 +7,7 @@ import blm from '../animations/blm.json'
 const ProtestsPage = (props) => {
   return (
     <div ref={props.protestsPageRef} className="page-section protests-section">
-      <div>
+      <div className="protests-div">
         May 30th: A state of emergency is declared in Los Angeles County and
         city of Los Angeles because of protests over the death of George Floyd
         and racial injustice. Curfews are also declared in Philadelphia and

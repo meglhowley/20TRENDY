@@ -205,6 +205,9 @@ const JanPage = (props) => {
         ) : null}
         {janState.userTrend ? (
           <div>
+            <button className="clear-matchup" onClick={handleDelete}>
+              Clear Matchup
+            </button>
             <UserKeyWords
               state={janState}
               handleEditKW1={handleEditKW1}
@@ -214,11 +217,7 @@ const JanPage = (props) => {
               handleChangeKW1={handleChangeKW1}
               handleChangeKW2={handleChangeKW2}
             />
-            <div className="clear">
-              <button className="clear-matchup" onClick={handleDelete}>
-                Clear Matchup
-              </button>
-            </div>
+            <div className="clear"></div>
             <div>
               {console.log(janState.pendingChart)}
               {janState.pendingChart ? (
@@ -256,7 +255,31 @@ const JanPage = (props) => {
                       .map((phrase, index) => {
                         return (
                           <div>
-                            <div className="related-div animate__animated animate__tada">
+                            <div
+                              style={{
+                                backgroundColor:
+                                  index === 0
+                                    ? 'tomato'
+                                    : index === 1
+                                    ? '#de6ce0'
+                                    : index === 2
+                                    ? '#ebb134'
+                                    : index === 3
+                                    ? '#c6eb34'
+                                    : index === 4
+                                    ? '#6c98e0'
+                                    : index === 5
+                                    ? '#8f6ce0'
+                                    : index === 6
+                                    ? '#a6a05b'
+                                    : index === 7
+                                    ? 'thistle'
+                                    : index === 8
+                                    ? '#690325'
+                                    : 'navy'
+                              }}
+                              className="related-div animate__animated animate__tada"
+                            >
                               {phrase}
                             </div>
                           </div>
