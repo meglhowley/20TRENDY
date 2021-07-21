@@ -10,7 +10,7 @@ export const Register = async (body) => {
     const res = await Client.post('/auth/register', body)
     return res.data
   } catch (error) {
-    throw error
+    return error.response.data.msg
   }
 }
 
@@ -19,6 +19,6 @@ export const Login = async (body) => {
     const res = await Client.post('/auth/login', body)
     return res.data
   } catch (error) {
-    throw error
+    return error.response.data.msg
   }
 }

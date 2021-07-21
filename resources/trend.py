@@ -35,10 +35,13 @@ class Trends(Resource):
         return [t.json() for t in trends], 200
 
     def post(self):
-        data = request.get_json()
-        trend = Trend(**data)
-        trend.create()
-        return trend.json(), 201
+        try:
+            data = request.get_json()
+            trend = Trend(**data)
+            trend.create()
+            return trend.json(), 201
+        except:
+            return {"msg": "Oops! There is no data on one or more of your words."}, 401
 
 
 class TrendDetail(Resource):

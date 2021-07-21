@@ -15,7 +15,7 @@ class Login(Resource):
             }
             token = create_token(payload)
             return {'user': payload, 'token': token}, 200
-        return {'Message': 'Unauthorized'}, 401
+        return {'msg': 'Unauthorized'}, 401
 
     def get(self):
         token = strip_token(request)
@@ -24,22 +24,25 @@ class Login(Resource):
                 payload = read_token(token)
                 return payload
             except:
-                return {"message": "Unauthorized"}, 401
-        return {"message": "Unauthorized"}, 401
+                return {"msg": "Unauthorized"}, 401
+        return {"msg": "Please sign in"}, 401
 
 
 class Register(Resource):
     def post(self):
-        data = request.get_json()
-        params = {
-            "first_name": data['first_name'],
-            "last_name": data['last_name'],
-            "email": data['email'],
-            "password_digest": gen_password(data['password'])
-        }
-        user = User(**params)
-        user.create()
-        return user.json(), 201
+        try:
+            data = request.get_json()
+            params = {
+                "first_name": data['first_name'],
+                "last_name": data['last_name'],
+                "email": data['email'],
+                "password_digest": gen_password(data['password'])
+                }
+            user = User(**params)
+            user.create()
+            return user.json(), 201
+        except:
+            return {"msg": "That email is already in use."}, 401
 
 class UserLikes(Resource):
     def get(self, user_id):
