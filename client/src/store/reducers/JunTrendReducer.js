@@ -39,7 +39,9 @@ const JunTrendReducer = (state = iState, action) => {
       return {
         ...state,
         monthlyTrends: [...state.monthlyTrends, action.payload],
-        userTrend: action.payload
+        userTrend: action.payload,
+        keyWord1: '',
+        keyWord2: ''
       }
     case UPDATE_TREND_JUN:
       return {
@@ -52,7 +54,13 @@ const JunTrendReducer = (state = iState, action) => {
       const filteredTrends = monthlyTrendsCopy.filter(
         (trend) => trend.id !== action.payload
       )
-      return { ...state, monthlyTrends: filteredTrends, userTrend: null }
+      return {
+        ...state,
+        monthlyTrends: filteredTrends,
+        userTrend: null,
+        keyWord1: '',
+        keyWord2: ''
+      }
     case SET_KEY_WORD_1:
       return { ...state, keyWord1: action.payload }
     case SET_KEY_WORD_2:
